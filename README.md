@@ -9,16 +9,29 @@ Version **8.3.0** refines four themes for people who want a more considered Link
 | **F1 / Motorsport Luxury** | Graded racing photography, carbon surfaces and precise red/silver accents. | `shinobi` |
 | **Marvel-inspired** | Photographed alloy, deep shadows and warm metallic light; no official character imagery. | `marvel` |
 
+![Aura theme collection — local sample profiles with empty covers](docs/images/theme-collection.jpg)
+
+*Local sample previews. Existing personal cover photographs remain unchanged.*
+
 Exactly four choices are available. Existing saved IDs and preference migrations remain compatible. `shinobi` is an internal compatibility key, not a visible theme name.
 
 ## Install or update
 
-1. Extract `aura-linkedin.zip`.
-2. Open `chrome://extensions` and enable **Developer mode**.
-3. Choose **Load unpacked**, then select the folder containing `manifest.json`.
-4. Refresh LinkedIn and choose a theme in Aura.
+Clone the repository:
 
-For an existing installation, replace the files in the folder already loaded by that browser, click **Reload** on Aura's extension card, then refresh its LinkedIn tabs. The picker should show **v8.3.0**. Opening the local studio or updating another browser's copy does not reload the installed content scripts.
+```sh
+git clone https://github.com/mahekara28/aura-linkedin.git
+```
+
+Or use **Code → Download ZIP** on GitHub and extract the archive.
+
+1. Open `chrome://extensions` in Chrome and enable **Developer mode**.
+2. Choose **Load unpacked** and select the cloned or extracted folder containing `manifest.json`.
+3. Refresh LinkedIn and choose a theme in Aura.
+
+No build step or package installation is needed to load the extension. The picker should show **v8.3.0**.
+
+For an existing clone, run `git pull --ff-only`, click **Reload** on Aura's extension card, then refresh LinkedIn. For ZIP installations, replace the files in the already-loaded folder first. Opening the local studio or updating another browser's copy does not reload installed content scripts.
 
 ## Controls
 

@@ -10,6 +10,10 @@ On viewports wider than 1,000px, one inert CSS pseudo-element displays a theme c
 
 The finite 8.2 photo-light motion remains: Pink 3,400ms, Cosmic 4,400ms, F1 1,900ms and Marvel-inspired 3,000ms on arrival. Eligible navigation/tab responses last 1,400ms with a nine-second cooldown. Two inert light spans animate only opacity and transform while the photograph stays fixed. There are no scroll/pointer listeners, JavaScript frame loops or periodic timers. Disabled, details-off, reduced-motion, hidden-page and forced-color guards remain in place.
 
+## Evidence location
+
+The `work/...` paths in this report refer to the separate development workspace. The regression harness, raw reports and individual audit captures are not included in this source repository. Counts below record the checks performed before publication; they are not a claim of a runnable test suite or GitHub Actions run in this checkout. The README includes a bundled collection preview.
+
 ## Source verification
 
 **173/173 tests passed**, with zero failures or skipped tests. Log: `work/v83-node-tests.txt`.
