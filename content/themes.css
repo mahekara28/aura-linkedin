@@ -1,0 +1,994 @@
+/* Aura v8.3: four distinct materials, one audited semantic contract.
+   LinkedIn retains layout, body type, media, and meaningful status colors. */
+html[data-aura-theme="bloom"],
+[data-aura-palette="bloom"] {
+  --aura-card-glass: rgba(255, 249, 250, .96);
+  --aura-surface-sidebar: rgba(255, 249, 250, .92);
+  --aura-nav-glass: rgba(53, 35, 45, .94);
+  --aura-identity-glass: rgba(255, 249, 250, .95);
+  --aura-profile-glass: rgba(255, 249, 250, .97);
+  --aura-card-finish: none;
+  --aura-nav-finish: linear-gradient(115deg,#ffffff00 35%,#fbd6e914 62%,#ffffff00 88%);
+  --aura-identity-finish: none;
+  --aura-profile-finish: none;
+  --aura-material-edge: #ffffff9c;
+  --aura-canvas: #f5e8eb;
+  --aura-surface: #fff9fa;
+  --aura-raised: #fffdfd;
+  --aura-soft: #f3e5e9;
+  --aura-border: #dfccd5;
+  --aura-text: #352630;
+  --aura-muted: #765467;
+  --aura-accent: #95264f;
+  --aura-accent-hover: #78203f;
+  --aura-accent-active: #5f1833;
+  --aura-on-accent: #ffffff;
+  --aura-selected: #f0dbe4;
+  --aura-hover: #f9edf1;
+  --aura-active: #e9d1dc;
+  --aura-control-border: #a5617d;
+  --aura-disabled-surface: #eae0e4;
+  --aura-disabled-text: #705a65;
+  --aura-status-danger: #9e2f43;
+  --aura-status-success: #3c684f;
+  --aura-overlay: #29151f66;
+  --aura-shadow: 0 1px 3px #462a3612, 0 4px 16px #462a3605;
+  --aura-popup-shadow: 0 14px 42px #442b3822, 0 2px 5px #442b380e;
+  --aura-modal-shadow: 0 24px 80px #29151f38;
+  --aura-radius: 12px;
+  --aura-control-radius: 999px;
+  --aura-field-corner: 8px;
+  --aura-popover-corner: 12px;
+  --aura-wallpaper: linear-gradient(125deg, #f5e8eb 0%, #f9f0f2 100%);
+  --aura-nav: #35232d;
+  --aura-nav-gradient: linear-gradient(108deg, #35232d 0%, #472b3a 100%);
+  --aura-nav-text: #fff6f9;
+  --aura-nav-muted: #efcedc;
+  --aura-nav-accent: #ffc4db;
+  --aura-nav-border: #b08297;
+  --aura-nav-field: #533441;
+  --aura-identity: #faedf2;
+  --aura-identity-gradient: linear-gradient(145deg, #fff7fa 0%, #f2e0e8 100%);
+  --aura-identity-text: #352630;
+  --aura-identity-muted: #765467;
+  --aura-profile-gradient: linear-gradient(140deg, #fff9fa 0%, #f8eaf0 100%);
+  --aura-scene-art: url("../assets/scene-bloom.svg");
+  --aura-scene-color: #efcbdc;
+  --aura-cover-line: #d9bec9;
+  --aura-font-heading: Georgia, "Times New Roman", serif;
+  --aura-heading-tracking: -.025em;
+  --aura-primary-finish: linear-gradient(115deg,#ffffff00 18%,#ffffff14 44%,#ffffff00 64%);
+  --aura-detail-thread: #ac6d86;
+  --aura-detail-opacity: .28;
+  --aura-detail-emblem-opacity: .32;
+  color-scheme: light !important;
+  --aura-signature-indicator: radial-gradient(ellipse at center,#ffe5ef 0 42%,#e7a9c5 50%,#e7a9c500 72%);
+  --aura-signature-edge: #c18aa3;
+  --aura-signature-opacity: .72;
+}
+
+html[data-aura-theme="shinobi"],
+[data-aura-palette="shinobi"] {
+  --aura-card-glass: rgba(25, 28, 33, .96);
+  --aura-surface-sidebar: rgba(16, 18, 22, .93);
+  --aura-nav-glass: rgba(13, 15, 18, .94);
+  --aura-identity-glass: rgba(16, 18, 22, .94);
+  --aura-profile-glass: rgba(25, 28, 33, .97);
+  --aura-card-finish: none;
+  --aura-nav-finish: repeating-linear-gradient(125deg,#ffffff03 0 1px,#ffffff00 1px 6px);
+  --aura-identity-finish: none;
+  --aura-profile-finish: none;
+  --aura-material-edge: #d2d9e22b;
+  --aura-canvas: #101114;
+  --aura-surface: #191c21;
+  --aura-raised: #23272d;
+  --aura-soft: #24272d;
+  --aura-border: #383d45;
+  --aura-text: #eceef2;
+  --aura-muted: #b8bdc7;
+  --aura-accent: #ff5964;
+  --aura-accent-hover: #ff7a81;
+  --aura-accent-active: #ff9ba0;
+  --aura-on-accent: #240b0d;
+  --aura-selected: #34252b;
+  --aura-hover: #292c32;
+  --aura-active: #30262a;
+  --aura-control-border: #8a909b;
+  --aura-disabled-surface: #30343c;
+  --aura-disabled-text: #b4bac5;
+  --aura-status-danger: #ffb1ac;
+  --aura-status-success: #91d7ad;
+  --aura-overlay: #06080bbe;
+  --aura-shadow: 0 1px 3px #00000030, 0 4px 16px #00000012;
+  --aura-popup-shadow: 0 14px 36px #00000075, 0 0 0 1px #d1d6e012;
+  --aura-modal-shadow: 0 24px 80px #000000a0;
+  --aura-radius: 6px;
+  --aura-control-radius: 5px;
+  --aura-field-corner: 5px;
+  --aura-popover-corner: 9px;
+  --aura-wallpaper: repeating-linear-gradient(125deg, #ffffff02 0, #ffffff02 1px, transparent 1px, transparent 5px), linear-gradient(115deg, #101114 0%, #15171c 100%);
+  --aura-nav: #0d0f12;
+  --aura-nav-gradient: linear-gradient(108deg, #0d0f12 0%, #1a1d23 100%);
+  --aura-nav-text: #f2f3f6;
+  --aura-nav-muted: #c3c8d1;
+  --aura-nav-accent: #ff7a81;
+  --aura-nav-border: #737d8b;
+  --aura-nav-field: #252930;
+  --aura-identity: #1b1e24;
+  --aura-identity-gradient: linear-gradient(145deg, #23272d 0%, #191c21 100%);
+  --aura-identity-text: #eceef2;
+  --aura-identity-muted: #b8bdc7;
+  --aura-profile-gradient: linear-gradient(140deg, #191c21 0%, #24272d 100%);
+  --aura-scene-art: url("../assets/scene-shinobi.svg");
+  --aura-scene-color: #1d2026;
+  --aura-cover-line: #454a53;
+  --aura-font-heading: Bahnschrift, "Arial Narrow", "Segoe UI", sans-serif;
+  --aura-heading-tracking: -.015em;
+  --aura-primary-finish: linear-gradient(115deg,#ffffff00 22%,#ffffff30 23% 24%,#ffffff00 25% 68%,#00000012 69%);
+  --aura-detail-thread: #a3aab5;
+  --aura-detail-opacity: .32;
+  --aura-detail-emblem-opacity: .4;
+  --aura-detail-signal: #e32636;
+  color-scheme: dark !important;
+  --aura-signature-indicator: linear-gradient(115deg,#ff788200 0 8%,#ff7882 9% 58%,#ff788200 59% 65%,#e1e5ed 66% 78%,#e1e5ed00 79%);
+  --aura-signature-edge: #a6adb8;
+  --aura-signature-opacity: .66;
+}
+
+html[data-aura-theme="orbit"],
+[data-aura-palette="orbit"] {
+  --aura-card-glass: rgba(16, 23, 44, .96);
+  --aura-surface-sidebar: rgba(12, 18, 36, .92);
+  --aura-nav-glass: rgba(8, 12, 24, .94);
+  --aura-identity-glass: rgba(14, 21, 40, .94);
+  --aura-profile-glass: rgba(16, 23, 44, .97);
+  --aura-card-finish: none;
+  --aura-nav-finish: radial-gradient(ellipse at 76% 0%,#adbaff14,#adbaff00 58%);
+  --aura-identity-finish: none;
+  --aura-profile-finish: none;
+  --aura-material-edge: #a8beef30;
+  --aura-canvas: #080c19;
+  --aura-surface: #10172c;
+  --aura-raised: #18213b;
+  --aura-soft: #1e2946;
+  --aura-border: #35415d;
+  --aura-text: #ecf0ff;
+  --aura-muted: #b4bfd9;
+  --aura-accent: #c1b6ff;
+  --aura-accent-hover: #d8ceff;
+  --aura-accent-active: #e9e2ff;
+  --aura-on-accent: #15152d;
+  --aura-selected: #283152;
+  --aura-hover: #202b49;
+  --aura-active: #303a5a;
+  --aura-control-border: #8797c4;
+  --aura-disabled-surface: #27314d;
+  --aura-disabled-text: #a7b3d1;
+  --aura-status-danger: #ffb4ab;
+  --aura-status-success: #ade7be;
+  --aura-overlay: #030610bd;
+  --aura-shadow: 0 1px 3px #00000030, 0 4px 16px #00000012;
+  --aura-popup-shadow: 0 16px 44px #00000080, 0 0 0 1px #b6c7ff16;
+  --aura-modal-shadow: 0 24px 80px #00000088;
+  --aura-radius: 12px;
+  --aura-control-radius: 8px;
+  --aura-field-corner: 8px;
+  --aura-popover-corner: 14px;
+  --aura-wallpaper: radial-gradient(ellipse at 80% 10%, #1b16452b, transparent 55%), linear-gradient(115deg, #080c19 0%, #0d1328 100%);
+  --aura-nav: #080c18;
+  --aura-nav-gradient: linear-gradient(108deg, #080c18 0%, #17172f 100%);
+  --aura-nav-text: #f0f2ff;
+  --aura-nav-muted: #c1cbe3;
+  --aura-nav-accent: #d4c9ff;
+  --aura-nav-border: #65769e;
+  --aura-nav-field: #1b2540;
+  --aura-identity: #141c34;
+  --aura-identity-gradient: linear-gradient(145deg, #1d2543 0%, #141c34 100%);
+  --aura-identity-text: #ecf0ff;
+  --aura-identity-muted: #b4bfd9;
+  --aura-profile-gradient: linear-gradient(140deg, #10172c 0%, #1c2541 100%);
+  --aura-scene-art: url("../assets/scene-orbit.svg");
+  --aura-scene-color: #141d39;
+  --aura-cover-line: #3e4c70;
+  --aura-font-heading: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+  --aura-heading-tracking: -.02em;
+  --aura-primary-finish: linear-gradient(155deg,#ffffff30,#ffffff00 48%,#6d75a510);
+  --aura-detail-thread: #a5b4e0;
+  --aura-detail-opacity: .25;
+  --aura-detail-emblem-opacity: .3;
+  color-scheme: dark !important;
+  --aura-signature-indicator: radial-gradient(circle at center,#f1edff 0 1.3px,#c8bfff55 1.7px 3px,#c8bfff00 4px),linear-gradient(90deg,#c1b6ff00,#c1b6ff99 40%,#c1b6ff00 42% 58%,#c1b6ff99 60%,#c1b6ff00);
+  --aura-signature-edge: #8e9cc6;
+  --aura-signature-opacity: .88;
+}
+
+html[data-aura-theme="marvel"],
+[data-aura-palette="marvel"] {
+  --aura-card-glass: rgba(20, 24, 32, .96);
+  --aura-surface-sidebar: rgba(10, 15, 23, .92);
+  --aura-nav-glass: rgba(8, 14, 22, .94);
+  --aura-identity-glass: rgba(14, 19, 27, .94);
+  --aura-profile-glass: rgba(20, 24, 32, .97);
+  --aura-card-finish: none;
+  --aura-nav-finish: linear-gradient(110deg,#dfbb790a,#ffffff00 35% 64%,#a8dfff0d);
+  --aura-identity-finish: none;
+  --aura-profile-finish: none;
+  --aura-material-edge: #dfbb7933;
+  --aura-canvas: #090d14;
+  --aura-surface: #141820;
+  --aura-raised: #1d242e;
+  --aura-soft: #252c36;
+  --aura-border: #3a414d;
+  --aura-text: #edf2f7;
+  --aura-muted: #bfc7d4;
+  --aura-accent: #dfbb79;
+  --aura-accent-hover: #eed19d;
+  --aura-accent-active: #f6dfb8;
+  --aura-on-accent: #241a0c;
+  --aura-selected: #363026;
+  --aura-hover: #2b3039;
+  --aura-active: #34312b;
+  --aura-control-border: #989b9e;
+  --aura-disabled-surface: #303742;
+  --aura-disabled-text: #b8c1ce;
+  --aura-status-danger: #ffb5b9;
+  --aura-status-success: #a9dfc2;
+  --aura-overlay: #03070dbd;
+  --aura-shadow: 0 1px 3px #00000030, 0 4px 16px #00000012;
+  --aura-popup-shadow: 0 16px 44px #00000085, 0 0 0 1px #dfbb7920;
+  --aura-modal-shadow: 0 24px 80px #000000a0;
+  --aura-radius: 10px;
+  --aura-control-radius: 7px;
+  --aura-field-corner: 7px;
+  --aura-popover-corner: 11px;
+  --aura-wallpaper: linear-gradient(118deg, #090d14, #121620);
+  --aura-nav: #080e16;
+  --aura-nav-gradient: linear-gradient(108deg, #080e16 0%, #171e29 100%);
+  --aura-nav-text: #f0f4fa;
+  --aura-nav-muted: #c1cddd;
+  --aura-nav-accent: #a8dfff;
+  --aura-nav-border: #7d889b;
+  --aura-nav-field: #202b3b;
+  --aura-identity: #141b26;
+  --aura-identity-gradient: linear-gradient(145deg, #222933 0%, #141b26 100%);
+  --aura-identity-text: #edf2f7;
+  --aura-identity-muted: #bfc7d4;
+  --aura-profile-gradient: linear-gradient(140deg, #141820 0%, #252b34 100%);
+  --aura-scene-art: url("../assets/scene-marvel.svg");
+  --aura-scene-color: #111c2a;
+  --aura-cover-line: #4e5664;
+  --aura-font-heading: "Segoe UI Variable Display", "Segoe UI", Arial, sans-serif;
+  --aura-heading-tracking: -.018em;
+  --aura-primary-finish: linear-gradient(118deg,#ffffff00 25%,#ffffff38 48%,#ffffff00 51% 72%,#0000000d);
+  --aura-detail-thread: #c3a775;
+  --aura-detail-opacity: .38;
+  --aura-detail-emblem-opacity: .38;
+  --aura-detail-signal: #c63442;
+  --aura-detail-energy: #a8dfff;
+  color-scheme: dark !important;
+  --aura-signature-indicator: linear-gradient(90deg,#dfbb7900 0 10%,#dfbb79 11% 43%,#dfbb7900 44% 56%,#a8dfff 57% 89%,#a8dfff00 90%);
+  --aura-signature-edge: #b6a07c;
+  --aura-signature-opacity: .78;
+}
+
+/* Component roles are shared across legacy and SDUI renderers. The compact
+   palette names remain public aliases for the installed v3 renderer. */
+html[data-aura-theme],
+[data-aura-palette] {
+  --aura-style-build: '8.3.0';
+  --aura-surface-card: var(--aura-card-glass);
+  --aura-surface-secondary: var(--aura-soft);
+  --aura-surface-elevated: var(--aura-raised);
+  --aura-state-hover: var(--aura-hover);
+  --aura-state-selected: var(--aura-selected);
+  --aura-state-active: var(--aura-active);
+  --aura-button-primary-bg: var(--aura-accent);
+  --aura-button-primary-hover: var(--aura-accent-hover);
+  --aura-button-primary-active: var(--aura-accent-active);
+  --aura-button-primary-ink: var(--aura-on-accent);
+  --aura-button-secondary-bg: transparent;
+  --aura-button-secondary-hover: var(--aura-state-hover);
+  --aura-button-secondary-ink: var(--aura-accent);
+  --aura-button-secondary-border: var(--aura-accent);
+  --aura-button-quiet-ink: var(--aura-muted);
+  --aura-button-quiet-hover: var(--aura-state-hover);
+  --aura-field-bg: var(--aura-surface-elevated);
+  --aura-field-ink: var(--aura-text);
+  --aura-field-placeholder: var(--aura-muted);
+  --aura-field-border: var(--aura-control-border);
+  --aura-field-focus: var(--aura-accent);
+  --aura-focus-ring: var(--aura-accent);
+  --aura-disabled-bg: var(--aura-disabled-surface);
+  --aura-disabled-ink: var(--aura-disabled-text);
+  --aura-disabled-border: var(--aura-border);
+  --aura-badge-bg: var(--aura-selected);
+  --aura-badge-ink: var(--aura-accent);
+  --aura-badge-border: var(--aura-border);
+  --aura-tooltip-bg: var(--aura-nav);
+  --aura-tooltip-ink: var(--aura-nav-text);
+  --aura-modal-bg: var(--aura-raised);
+  --aura-popover-bg: var(--aura-raised);
+  --aura-radius-card: var(--aura-radius);
+  --aura-radius-control: var(--aura-control-radius);
+  --aura-radius-field: var(--aura-field-corner);
+  --aura-radius-popover: var(--aura-popover-corner);
+  --aura-radius-pill: 999px;
+  --aura-space-1: 4px;
+  --aura-space-2: 8px;
+  --aura-space-3: 12px;
+  --aura-space-4: 16px;
+  --aura-elevation-card: var(--aura-shadow);
+  --aura-elevation-popover: var(--aura-popup-shadow);
+  --aura-elevation-modal: var(--aura-modal-shadow);
+  --aura-duration-fast: 120ms;
+  --aura-duration-normal: 180ms;
+  --aura-ease: cubic-bezier(.2, .7, .3, 1);
+  --aura-font-content: inherit;
+}
+
+html[data-aura-theme][data-aura-decorations="off"] {
+  --aura-card-glass: var(--aura-surface);
+  --aura-surface-sidebar: var(--aura-surface);
+  --aura-nav-glass: var(--aura-nav);
+  --aura-identity-glass: var(--aura-identity);
+  --aura-profile-glass: var(--aura-identity);
+  --aura-card-finish: none;
+  --aura-nav-finish: none;
+  --aura-identity-finish: none;
+  --aura-profile-finish: none;
+}
+
+@media (prefers-contrast: more) {
+  html[data-aura-theme] {
+    --aura-card-glass: var(--aura-surface);
+    --aura-surface-sidebar: var(--aura-surface);
+    --aura-nav-glass: var(--aura-nav);
+    --aura-identity-glass: var(--aura-identity);
+    --aura-profile-glass: var(--aura-identity);
+    --aura-card-finish: none;
+    --aura-nav-finish: none;
+    --aura-identity-finish: none;
+    --aura-profile-finish: none;
+  }
+}
+
+/* LinkedIn semantic tokens are inherited by new UI, dialogs, and lazy-loaded feed. */
+html[data-aura-theme] {
+  --color-background-canvas: var(--aura-canvas) !important;
+  --color-background-container: var(--aura-surface) !important;
+  --color-background-container-tint: var(--aura-soft) !important;
+  --color-background-container-dark: var(--aura-raised) !important;
+  --color-background-container-hover: var(--aura-state-hover) !important;
+  --color-background-container-active: var(--aura-selected) !important;
+  --color-background-new: var(--aura-selected) !important;
+  --color-background-brand-accent-3: var(--aura-soft) !important;
+  --color-background-brand-accent-4: var(--aura-soft) !important;
+  --color-background-brand-accent-5: var(--aura-selected) !important;
+  --color-background-on-dark: var(--aura-surface) !important;
+  --color-text: var(--aura-text) !important;
+  --color-text-solid: var(--aura-text) !important;
+  --color-text-heading: var(--aura-text) !important;
+  --color-text-low-emphasis: var(--aura-muted) !important;
+  --color-text-low-emphasis-solid: var(--aura-muted) !important;
+  --color-text-shift-on-dark-flip: var(--aura-text) !important;
+  --color-text-shift-on-dark: var(--aura-text) !important;
+  --color-link: var(--aura-accent) !important;
+  --color-link-hover: var(--aura-accent-hover) !important;
+  --color-action: var(--aura-accent) !important;
+  --color-action-hover: var(--aura-accent-hover) !important;
+  --color-action-active: var(--aura-accent-hover) !important;
+  --color-action-highlight: var(--aura-selected) !important;
+  --color-action-highlight-hover: var(--aura-soft) !important;
+  --color-brand: var(--aura-accent) !important;
+  --color-brand-accent-1: var(--aura-accent) !important;
+  --color-border: var(--aura-border) !important;
+  --color-border-low-emphasis: var(--aura-border) !important;
+  --color-border-faint: var(--aura-border) !important;
+  --color-icon: var(--aura-muted) !important;
+  --color-icon-active: var(--aura-text) !important;
+  --color-icon-nav: var(--aura-muted) !important;
+  --color-icon-nav-active: var(--aura-text) !important;
+  --color-checked: var(--aura-accent) !important;
+  --color-checked-hover: var(--aura-accent-hover) !important;
+  --color-input: var(--aura-field-bg) !important;
+  --color-input-container: var(--aura-field-bg) !important;
+  --color-input-container-hover: var(--aura-state-hover) !important;
+  --color-button-container-primary: var(--aura-button-primary-bg) !important;
+  --color-button-container-primary-hover: var(--aura-button-primary-hover) !important;
+  --color-button-container-primary-active: var(--aura-button-primary-active) !important;
+  --color-button-label-primary: var(--aura-on-accent) !important;
+  --color-button-label-secondary: var(--aura-accent) !important;
+  --color-button-label-secondary-hover: var(--aura-accent-hover) !important;
+  --color-button-label-tertiary: var(--aura-muted) !important;
+  --color-button-border-secondary: var(--aura-accent) !important;
+  --color-button-container-secondary-hover: var(--aura-button-secondary-hover) !important;
+  --color-button-container-tertiary-hover: var(--aura-button-quiet-hover) !important;
+  background-color: var(--aura-canvas) !important;
+  accent-color: var(--aura-accent);
+}
+
+html[data-aura-theme] body {
+  /* LinkedIn sets a scheme on body; inherit the active palette so native
+     scrollbars and controls follow the current dialog material. */
+  color-scheme: inherit !important;
+  background-color: var(--aura-canvas) !important;
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme][data-aura-decorations="on"] body {
+  background-image: var(--aura-wallpaper) !important;
+}
+
+html[data-aura-theme][data-aura-decorations="off"] body {
+  background-image: none !important;
+}
+
+html[data-aura-theme] :is(.application-outlet, .authentication-outlet, .scaffold-layout, .scaffold-layout__inner, .scaffold-layout__row, .scaffold-layout__main, .scaffold-finite-scroll, .scaffold-finite-scroll__content) {
+  background-color: transparent !important;
+}
+
+html[data-aura-theme] .artdeco-tabs__tablist {
+  background-color: var(--aura-surface) !important;
+  color: var(--aura-text) !important;
+  border-color: var(--aura-border) !important;
+}
+
+/* Footer copy can sit directly on the photograph. Its reading backing keeps
+   the existing dimensions and padding, without introducing a floating panel. */
+html[data-aura-theme] :is(footer, .global-footer, .global-footer-compact) {
+  background-color: var(--aura-card-glass) !important;
+  color: var(--aura-muted) !important;
+  border-color: var(--aura-border) !important;
+  border-radius: var(--aura-radius-field);
+}
+
+/* Concrete surface classes cover feed, profiles, jobs, networks, and messages. */
+html[data-aura-theme] :is(.artdeco-card, .feed-shared-update-v2, .feed-shared-update-v2__control-menu, .share-box-feed-entry, .feed-identity-module, .feed-shared-news-module, .community-panel, .scaffold-layout__sticky-content, .scaffold-layout-toolbar, .pv-profile-card, .pv-top-card, .pvs-list__container, .jobs-search-results-list, .jobs-search__job-details--container, .jobs-search-box, .jobs-unified-top-card, .job-details-jobs-unified-top-card__container--two-pane, .job-view-layout, .job-details-module, .job-details-how-you-match-card__container, .jobs-details__main-content, .jobs-details-top-card, .jobs-premium-applicant-insights, .jobs-description, .jobs-description__container, .jobs-description-content__text, .scaffold-layout-list, .scaffold-layout-list-detail, .scaffold-layout__detail, .scaffold-layout__list, .mn-community-summary, .mn-connection-card, .mn-invitation, .discovery-entity-type-card, .nt-card, .nt-card__text, .msg-overlay-bubble-header, .msg-overlay-list-bubble, .msg-overlay-conversation-bubble, .msg-conversations-container, .msg-conversation-listitem, .msg-thread, .msg-s-message-list-container, .msg-form, .msg-form__contenteditable, .msg-form__footer, .msg-title-bar, .search-results-container, .search-results__cluster-wrapper, .reusable-search__result-container, .basic-search__filter, .white-bg) {
+  background-color: var(--aura-surface) !important;
+  color: var(--aura-text) !important;
+  border-color: var(--aura-border) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-card, .feed-shared-update-v2, .share-box-feed-entry, .feed-identity-module, .feed-shared-news-module, .community-panel, .pv-profile-card, .mn-connection-card, .discovery-entity-type-card) {
+  background-color: var(--aura-surface-card) !important;
+  border-radius: var(--aura-radius-card) !important;
+  box-shadow: var(--aura-elevation-card) !important;
+}
+
+/* Outer sidebars share the environment. Fields and menus stay opaque. */
+html[data-aura-theme] :is(.scaffold-layout__sidebar, .scaffold-layout__aside, aside, [role="complementary"]) {
+  --aura-surface-card: var(--aura-surface-sidebar);
+}
+
+/* Served ads have their own document; the sticky profile toolbar floats above
+   text. Both require solid paint instead of the page's ambient material. */
+html[data-aura-theme] #react-root > #ads-container,
+html[data-aura-theme] [data-sdui-screen="com.linkedin.sdui.flagshipnav.profile.Profile"] [role="toolbar"] {
+  --aura-surface-card: var(--aura-surface);
+  --aura-card-finish: none;
+}
+
+/* The served-ad renderer can arrive after its initial native paint. Its
+   explicit semantic surface and Follow control need no generated-class scan.
+   Creative media and sponsor artwork inside the ad keep their own colors. */
+html[data-aura-theme] #react-root > #ads-container {
+  background-color: var(--aura-surface) !important;
+  color: var(--aura-text) !important;
+  border-color: var(--aura-border) !important;
+}
+html[data-aura-theme] #ads-container a[data-testid="follow-company-container__button"] {
+  background-color: transparent !important;
+  color: var(--aura-accent) !important;
+  box-shadow: 0 0 0 1px var(--aura-accent) !important;
+}
+html[data-aura-theme] #ads-container a[data-testid="follow-company-container__button"]:hover {
+  background-color: var(--aura-hover) !important;
+  box-shadow: 0 0 0 2px var(--aura-accent) !important;
+}
+html[data-aura-theme] #ads-container a[data-testid="follow-company-container__button"]:focus-visible {
+  outline: 2px solid var(--aura-focus-ring) !important;
+  outline-offset: 3px !important;
+}
+
+/* Theme typography is reserved for the member identity. Utility section
+   headings retain LinkedIn's UI family and hierarchy. */
+html[data-aura-theme] :is([data-aura-detail="profile"], [data-aura-detail="identity"]) [data-aura-detail-heading],
+html[data-aura-theme] :is(.pv-top-card, [data-aura-surface="profile"], [id^="com.linkedin.sdui.profile.card."][id$="Topcard"]) h1 {
+  font-family: var(--aura-font-heading) !important;
+  letter-spacing: var(--aura-heading-tracking);
+}
+
+html[data-aura-theme] :is(.artdeco-dropdown__content, .artdeco-dropdown__content-inner, .artdeco-hoverable-content__content, .artdeco-modal, .artdeco-modal__header, .artdeco-modal__content, .artdeco-modal__actionbar, .artdeco-toast-item, .search-global-typeahead__results, .search-typeahead-v2__hit, .search-global-typeahead__result, .share-creation-state__text-editor, .share-box, .share-creation-state, .editor-container, .comments-comment-box__form, .comments-comment-box-comment__text-editor, .comments-comment-item__inline-show-more-text, .comments-comment-item__main-content) {
+  background-color: var(--aura-raised) !important;
+  color: var(--aura-text) !important;
+  border-color: var(--aura-border) !important;
+}
+
+/* Menus feel like the same material at a higher elevation. Reset inherited
+   header tokens so a navigation menu keeps readable text in every palette. */
+html[data-aura-theme] :is(.artdeco-dropdown__content, .artdeco-hoverable-content__content, .artdeco-modal, .artdeco-toast-item, .search-global-typeahead__results) {
+  --aura-surface-card: var(--aura-raised);
+  --aura-card-finish: none;
+  --color-text: var(--aura-text) !important;
+  --color-text-solid: var(--aura-text) !important;
+  --color-text-low-emphasis: var(--aura-muted) !important;
+  --color-icon: var(--aura-muted) !important;
+  --color-border: var(--aura-border) !important;
+  --color-background-container: var(--aura-raised) !important;
+  border-radius: var(--aura-radius-popover) !important;
+  box-shadow: var(--aura-elevation-popover) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-dropdown__item, .artdeco-dropdown__item a, .artdeco-dropdown__item button, .artdeco-modal__header h2, .artdeco-toast-item__message) {
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-dropdown__item:hover, .artdeco-dropdown__item:focus, .artdeco-list__item:hover, .jobs-search-results__list-item--active, .jobs-search-two-pane__job-card-container--active, .job-card-container--clickable:hover, .msg-conversation-listitem--selected, .msg-conversation-listitem:hover, .search-global-typeahead__result:hover, .search-typeahead-v2__hit--active) {
+  background-color: var(--aura-state-hover) !important;
+}
+
+html[data-aura-theme] :is(.nt-card--unread, .msg-conversation-listitem--unread, .jobs-search-results-list__list-item--active, .artdeco-dropdown__item--selected, .artdeco-dropdown__item--active) {
+  background-color: var(--aura-selected) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-dropdown__item, .artdeco-tab, .artdeco-tabs__tab, .artdeco-pill--choice):is([aria-selected="true"], [aria-checked="true"]) {
+  background-color: var(--aura-selected) !important;
+  color: var(--aura-accent) !important;
+  border-color: var(--aura-accent) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-table, .artdeco-empty-state, .artdeco-pagination) {
+  background-color: var(--aura-surface) !important;
+  color: var(--aura-text) !important;
+  border-color: var(--aura-border) !important;
+}
+
+/* Inherited text plus LinkedIn's explicit utility colors, without touching media. */
+html[data-aura-theme] :is(.t-black, .t-black--light strong, .feed-shared-inline-show-more-text, .update-components-text, .update-components-actor__title, .update-components-actor__name, .feed-shared-actor__name, .social-details-social-counts, .comments-comment-item__main-content, .artdeco-entity-lockup__title, .artdeco-modal__header, .text-heading-xlarge, .text-heading-large, .text-heading-medium, .text-heading-small, .text-body-medium, .text-body-small, .jobs-description__content, .msg-s-event-listitem__body, .msg-s-message-group__name, .entity-result__title-text) {
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is(.t-black--light, .t-black--light.t-bold, .update-components-actor__description, .update-components-actor__sub-description, .feed-shared-actor__description, .feed-shared-actor__sub-description, .artdeco-entity-lockup__subtitle, .artdeco-entity-lockup__caption, .artdeco-entity-lockup__metadata, .social-details-social-counts__reactions-count, .social-details-social-counts__comments, .social-details-social-counts__item, .text-body-xsmall, .msg-s-message-group__timestamp, .job-card-container__metadata-item, .entity-result__secondary-subtitle) {
+  color: var(--aura-muted) !important;
+}
+
+html[data-aura-theme] a[href]:not(.artdeco-button):not(.global-nav__primary-link):not(.global-nav__secondary-link) {
+  color: var(--aura-accent);
+}
+
+html[data-aura-theme] a[href]:not(.artdeco-button):hover {
+  color: var(--aura-accent-hover);
+}
+
+/* Button variants share the same states as the semantic SDUI controls. */
+html[data-aura-theme] .artdeco-button:not(.artdeco-button--circle):not(.artdeco-button--tertiary) {
+  border-radius: var(--aura-radius-control) !important;
+}
+
+html[data-aura-theme] .artdeco-button--primary {
+  color: var(--aura-button-primary-ink) !important;
+  background-color: var(--aura-button-primary-bg) !important;
+  border-color: var(--aura-button-primary-bg) !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme][data-aura-decorations="on"] .artdeco-button--primary:not(:disabled, [aria-disabled="true"], .artdeco-button--disabled) {
+  background-image: var(--aura-primary-finish) !important;
+}
+
+html[data-aura-theme] .artdeco-button--primary :is(.artdeco-button__text, .artdeco-button__icon) {
+  color: inherit !important;
+}
+
+html[data-aura-theme] .artdeco-button--primary:not(:disabled, [aria-disabled="true"], .artdeco-button--disabled):hover {
+  background-color: var(--aura-button-primary-hover) !important;
+  border-color: var(--aura-button-primary-hover) !important;
+}
+
+html[data-aura-theme] .artdeco-button--primary:not(:disabled, [aria-disabled="true"], .artdeco-button--disabled):active {
+  background-color: var(--aura-button-primary-active) !important;
+  border-color: var(--aura-button-primary-active) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--secondary, .artdeco-button--tertiary, .artdeco-pill--choice) {
+  color: var(--aura-button-secondary-ink) !important;
+  background-color: var(--aura-button-secondary-bg) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--secondary, .artdeco-button--tertiary) :is(.artdeco-button__text, .artdeco-button__icon) {
+  color: inherit !important;
+}
+
+html[data-aura-theme] .artdeco-button--secondary {
+  border-color: var(--aura-button-secondary-border) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-button-secondary-border) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--secondary, .artdeco-button--tertiary, .artdeco-pill--choice):not(:disabled, [aria-disabled="true"], .artdeco-button--disabled):hover {
+  background-color: var(--aura-button-secondary-hover) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--secondary, .artdeco-button--tertiary, .artdeco-pill--choice):not(:disabled, [aria-disabled="true"], .artdeco-button--disabled):active {
+  background-color: var(--aura-state-active) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--muted, .social-actions-button, .feed-shared-social-action-bar__action-button, .share-box-feed-entry__trigger, .artdeco-modal__dismiss, .artdeco-dropdown__trigger, .artdeco-tab, .artdeco-tabs__tab) {
+  color: var(--aura-button-quiet-ink) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button--muted, .social-actions-button, .feed-shared-social-action-bar__action-button):not(:disabled, [aria-disabled="true"]):hover {
+  background-color: var(--aura-button-quiet-hover) !important;
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-pill--selected, .artdeco-pill--choice[aria-checked="true"], .artdeco-tab--selected, .artdeco-tabs__tab--selected) {
+  color: var(--aura-badge-ink) !important;
+  background-color: var(--aura-badge-bg) !important;
+  border-color: var(--aura-accent) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-button:disabled, .artdeco-button[aria-disabled="true"], .artdeco-button--disabled) {
+  color: var(--aura-disabled-ink) !important;
+  background-color: var(--aura-disabled-bg) !important;
+  background-image: none !important;
+  border-color: var(--aura-disabled-border) !important;
+  box-shadow: none !important;
+  opacity: 1;
+}
+
+/* Text fields retain input type, validation, and native keyboard behavior. */
+html[data-aura-theme] :is(input[type="text"], input[type="search"], input[type="email"], input[type="password"], input[type="url"], input[type="number"], input[type="tel"], textarea, select, .search-global-typeahead__input, .search-global-typeahead__input-container, .artdeco-text-input--input, .artdeco-typeahead__input, .comments-comment-box__contenteditable, .msg-form__contenteditable, .ql-editor) {
+  background-color: var(--aura-field-bg) !important;
+  color: var(--aura-field-ink) !important;
+  caret-color: var(--aura-accent) !important;
+  border-color: var(--aura-field-border) !important;
+}
+
+html[data-aura-theme] :is(input, textarea)::placeholder {
+  color: var(--aura-field-placeholder) !important;
+  opacity: 1;
+}
+
+html[data-aura-theme] :is(.artdeco-text-input--input, .artdeco-typeahead__input) {
+  border-radius: var(--aura-radius-field) !important;
+}
+
+html[data-aura-theme] :is(.artdeco-text-input--input, .artdeco-typeahead__input, textarea, select):not(:disabled):not([aria-disabled="true"]):focus-visible {
+  background-color: var(--aura-raised) !important;
+  border-color: var(--aura-field-focus) !important;
+}
+
+@media (hover: hover) {
+  html[data-aura-theme] :is(.artdeco-text-input--input, .artdeco-typeahead__input, textarea, select):not(:disabled, [aria-disabled="true"], [aria-invalid="true"]):hover {
+    border-color: var(--aura-accent) !important;
+  }
+}
+
+/* Rich-text editors paint placeholder text through a pseudo-element rather
+   than native ::placeholder. Only an explicitly empty placeholder is themed. */
+html[data-aura-theme] [contenteditable="true"][role="textbox"] > p[data-placeholder].is-empty::before,
+html[data-aura-theme] .ql-editor.ql-blank::before,
+html[data-aura-theme] .msg-form__contenteditable::before,
+html[data-aura-theme] .comments-comment-box__contenteditable::before {
+  color: var(--aura-field-placeholder) !important;
+}
+
+html[data-aura-theme] :is(input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="file"]), textarea, select):is(:disabled, [aria-disabled="true"]) {
+  color: var(--aura-disabled-ink) !important;
+  background-color: var(--aura-disabled-bg) !important;
+  border-color: var(--aura-disabled-border) !important;
+  opacity: 1;
+}
+
+html[data-aura-theme] :is(input, textarea, select, [role="textbox"])[aria-invalid="true"] {
+  border-color: var(--aura-status-danger) !important;
+}
+
+html[data-aura-theme] .artdeco-modal-overlay {
+  background-color: var(--aura-overlay) !important;
+}
+
+html[data-aura-theme] .artdeco-modal {
+  background-color: var(--aura-modal-bg) !important;
+  box-shadow: var(--aura-elevation-modal) !important;
+}
+
+html[data-aura-theme] :is(hr, .artdeco-divider, .artdeco-card__actions, .feed-shared-social-action-bar, .social-details-social-actions, .comments-comment-box, .pvs-list__item--line-separated, .msg-s-message-list__time-heading, .artdeco-list__item) {
+  border-color: var(--aura-border) !important;
+}
+
+html[data-aura-theme] :is(a, button, input, textarea, select, [tabindex]):focus-visible {
+  outline: 2px solid var(--aura-focus-ring) !important;
+  outline-offset: 3px;
+}
+
+html[data-aura-theme] ::selection {
+  background-color: var(--aura-selected);
+  color: var(--aura-text);
+}
+
+/* The navigation is a deliberate dark material in every theme. Keep its own
+   positioning and dimensions: LinkedIn controls sticky/fixed behavior. */
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) {
+  --aura-focus-ring: var(--aura-nav-accent);
+  --color-text: var(--aura-nav-text) !important;
+  --color-text-low-emphasis: var(--aura-nav-muted) !important;
+  --color-icon: var(--aura-nav-muted) !important;
+  --color-icon-nav: var(--aura-nav-muted) !important;
+  --color-icon-nav-active: var(--aura-nav-text) !important;
+  --color-border: var(--aura-nav-border) !important;
+  isolation: isolate;
+  background-color: var(--aura-nav-glass) !important;
+  background-image: var(--aura-nav-finish) !important;
+  color: var(--aura-nav-text) !important;
+  border-color: var(--aura-nav-border) !important;
+  box-shadow: inset 0 -1px 0 var(--aura-nav-border) !important;
+}
+
+html[data-aura-theme] :is(.global-nav__content, .global-nav__primary-items, .global-nav__secondary-items, .global-nav__primary-item, .global-nav__secondary-item) {
+  background-color: transparent !important;
+  border-color: var(--aura-nav-border) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(.global-nav__primary-link, .global-nav__primary-link-text, .global-nav__secondary-link, .global-nav__secondary-link-text, .global-nav__me, .global-nav__icon, .global-nav__app-launcher-trigger, .global-nav__primary-item > .artdeco-dropdown > .artdeco-dropdown__trigger) {
+  color: var(--aura-nav-muted) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(.global-nav__primary-link--active, .global-nav__primary-link--active .global-nav__primary-link-text, .global-nav__primary-link--active .global-nav__icon, .global-nav__primary-link:hover, .global-nav__primary-link:focus-visible, .global-nav__secondary-link:hover) {
+  color: var(--aura-nav-text) !important;
+}
+
+html[data-aura-theme] .global-nav__primary-link--active::after {
+  border-color: var(--aura-nav-accent) !important;
+  background-color: var(--aura-nav-accent) !important;
+}
+
+/* Legacy search paints its icon in a sibling container. Both pieces need the
+   same field material; coloring only the input leaves a native white patch. */
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(.search-global-typeahead__input, .search-global-typeahead__input-container, .search-global-typeahead__search-icon-container, [role="search"] input) {
+  background-color: var(--aura-nav-field) !important;
+  color: var(--aura-nav-text) !important;
+  border-color: var(--aura-nav-border) !important;
+  caret-color: var(--aura-nav-accent) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(.search-global-typeahead__input, [role="search"] input)::placeholder {
+  color: var(--aura-nav-muted) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(.search-global-typeahead__search-icon, .search-global-typeahead__collapsed-search-button-icon, .search-global-typeahead__collapsed-search-button-text) {
+  color: var(--aura-nav-muted) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) .search-global-typeahead:is(:hover, :focus-within) .search-global-typeahead__search-icon,
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) .search-global-typeahead :is(button:hover, button:focus-visible) :is(.search-global-typeahead__collapsed-search-button-icon, .search-global-typeahead__collapsed-search-button-text) {
+  color: var(--aura-nav-text) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, .global-nav, [data-aura-surface="header"]) :is(a, button, input, [tabindex]):focus-visible {
+  outline-color: var(--aura-focus-ring) !important;
+}
+
+/* Menus opened from the dark navigation use the normal readable card palette. */
+html[data-aura-theme] :is(.artdeco-dropdown__content, .artdeco-hoverable-content__content, .search-global-typeahead__results, .search-global-typeahead__search-results) {
+  --aura-focus-ring: var(--aura-accent);
+  --color-text: var(--aura-text) !important;
+  --color-text-low-emphasis: var(--aura-muted) !important;
+  --color-icon: var(--aura-muted) !important;
+  --color-border: var(--aura-border) !important;
+  background-color: var(--aura-raised) !important;
+  color: var(--aura-text) !important;
+}
+
+/* A profile should feel part of its world, from feed identity to the full page.
+   Cover photos keep their source and rendering; these rules only color surfaces. */
+html[data-aura-theme] :is(.feed-identity-module, .profile-card, [data-aura-surface="identity"]) {
+  --aura-text: var(--aura-identity-text);
+  --aura-muted: var(--aura-identity-muted);
+  --color-text: var(--aura-identity-text) !important;
+  --color-text-low-emphasis: var(--aura-identity-muted) !important;
+  --color-background-container: var(--aura-identity) !important;
+  isolation: isolate;
+  background-color: var(--aura-identity-glass) !important;
+  background-image: var(--aura-identity-finish) !important;
+  color: var(--aura-identity-text) !important;
+  border-color: var(--aura-border) !important;
+  border-radius: var(--aura-radius-card) !important;
+}
+
+html[data-aura-theme] :is(.feed-identity-module__actor-meta, .feed-identity-module__widgets, .feed-identity-module__premium-upsell, .feed-identity-module__entity-list, .profile-card .artdeco-card, .profile-card__details, .profile-card__content, .profile-card__section) {
+  background-color: transparent !important;
+  color: var(--aura-identity-text) !important;
+  border-color: var(--aura-border) !important;
+}
+
+html[data-aura-theme] :is(.feed-identity-module, .profile-card, [data-aura-surface="identity"]) :is(.t-black, .text-heading-large, .text-heading-medium, .text-heading-small, .text-body-medium, .text-body-small, .feed-identity-module__actor-meta .app-aware-link, h1, h2, h3) {
+  color: var(--aura-identity-text) !important;
+}
+
+html[data-aura-theme] :is(.feed-identity-module, .profile-card, [data-aura-surface="identity"]) :is(.t-black--light, .text-body-xsmall, .artdeco-entity-lockup__subtitle, .artdeco-entity-lockup__caption) {
+  color: var(--aura-identity-muted) !important;
+}
+
+html[data-aura-theme] :is(.pv-top-card, [data-aura-surface="profile"]:not([data-aura-cover]), .pv-profile-card:has(.profile-background-image), .artdeco-card:has(> .profile-background-image)) {
+  isolation: isolate;
+  background-color: var(--aura-profile-glass) !important;
+  background-image: var(--aura-profile-finish) !important;
+  border-color: var(--aura-border) !important;
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is(.pv-top-card__photo-wrapper, .pv-top-card-profile-picture__container, .profile-card-profile-picture-container) {
+  border-color: var(--aura-identity) !important;
+}
+
+html[data-aura-theme] :is(.pv-profile-card, .pv-top-card, [data-aura-surface="profile"]) :is(.pv-top-card__background-image-wrapper, .profile-background-image, .profile-background-image__image-container, .profile-background-image__image, .profile-card-background-image, [data-aura-cover]) {
+  background-color: var(--aura-scene-color) !important;
+  border-color: var(--aura-cover-line) !important;
+}
+
+html[data-aura-theme] :is(.profile-card-background-image, .feed-identity-module__default-bg, .profile-cover) {
+  background-color: var(--aura-scene-color) !important;
+  border-color: var(--aura-cover-line) !important;
+}
+
+html[data-aura-theme] [data-aura-static-host] {
+  position: relative !important;
+}
+
+html[data-aura-theme] [data-aura-cover] {
+  isolation: isolate;
+}
+
+html[data-aura-theme][data-aura-decorations="on"] .aura-demo-cover {
+  background-color: var(--aura-scene-color) !important;
+  background-image: var(--aura-scene-art),var(--aura-world-cover-veil),var(--aura-environment-image) !important;
+  background-repeat: no-repeat !important;
+  background-position: right center,center,center !important;
+  background-size: cover !important;
+}
+
+html[data-aura-theme][data-aura-decorations="on"] .aura-demo-cover:has(> .aura-scene-overlay) {
+  background-image: none !important;
+}
+
+html[data-aura-theme][data-aura-decorations="off"] .aura-demo-cover {
+  background-color: var(--aura-scene-color) !important;
+  background-image: var(--aura-nav-gradient) !important;
+}
+
+/* Scenes live only on empty covers. Header and identity areas already have a
+   distinct material; displaying a second picture there would reduce hierarchy. */
+html[data-aura-theme] .aura-scene-overlay {
+  position: absolute !important;
+  inset: 0 !important;
+  z-index: -1 !important;
+  display: block;
+  overflow: hidden !important;
+  border-radius: inherit;
+  pointer-events: none !important;
+  user-select: none !important;
+  contain: paint;
+}
+
+html[data-aura-theme] .aura-scene-overlay * {
+  pointer-events: none !important;
+}
+
+html[data-aura-theme] .aura-scene-art {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block;
+  background-image: var(--aura-scene-art);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+html[data-aura-theme] .aura-scene-overlay:is([data-aura-placement="header"], [data-aura-placement="identity"]),
+html[data-aura-theme] :is(.aura-scene-glow, .aura-mote),
+html[data-aura-theme] [data-aura-photo-cover="true"] .aura-scene-overlay {
+  display: none !important;
+}
+
+html[data-aura-theme][data-aura-decorations="off"] .aura-scene-overlay {
+  display: none !important;
+}
+
+/* Primary-action material response. No new layers or box-shadows that could
+   erase LinkedIn's semantic control rings. */
+html[data-aura-theme][data-aura-decorations="on"] :is(.artdeco-button--primary,[data-aura-modern-control="accent"]):not(:disabled,[aria-disabled="true"],.artdeco-button--disabled,[disabled] *,[aria-disabled="true"] *) {
+  background-size:200% 100% !important;
+  background-position:100% 50% !important;
+}
+html[data-aura-theme][data-aura-decorations="on"] :is(.artdeco-button--primary,[data-aura-modern-control="accent"]):not(:disabled,[aria-disabled="true"],.artdeco-button--disabled,[disabled] *,[aria-disabled="true"] *):is(:hover,:focus-visible) {
+  background-position:0% 50% !important;
+}
+@media (prefers-reduced-motion:no-preference) {
+  html[data-aura-theme][data-aura-motion="on"][data-aura-visible="true"][data-aura-decorations="on"] :is(.artdeco-button--primary,[data-aura-modern-control="accent"]):not(:disabled,[aria-disabled="true"],.artdeco-button--disabled,[disabled] *,[aria-disabled="true"] *) {
+    transition:background-position 420ms cubic-bezier(.22,.61,.36,1),background-color 160ms ease,color 160ms ease,border-color 160ms ease;
+  }
+}
+
+/* Motion is interaction feedback, never a constantly moving reading surface.
+   These guards also protect future additions and paused/hidden documents. */
+html[data-aura-theme][data-aura-motion="off"] .aura-scene-overlay *,
+html[data-aura-theme][data-aura-visible="false"] .aura-scene-overlay * {
+  animation: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-aura-theme][data-aura-motion="on"][data-aura-visible="true"] :is(.artdeco-button, .artdeco-pill--choice, .artdeco-dropdown__item, .social-actions-button, .feed-shared-social-action-bar__action-button, .artdeco-tabs__tab) {
+    transition: background-position 420ms var(--aura-ease), background-color var(--aura-duration-normal) var(--aura-ease), color var(--aura-duration-fast) var(--aura-ease), border-color var(--aura-duration-normal) var(--aura-ease);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html[data-aura-theme] .aura-scene-overlay * {
+    animation: none !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html[data-aura-theme] :is(.artdeco-button, .artdeco-pill--choice, .artdeco-dropdown__item, .social-actions-button, .feed-shared-social-action-bar__action-button, .artdeco-tabs__tab) {
+    transition: none !important;
+  }
+}
+
+/* Let forced colors supply their own high-contrast palette. */
+@media (forced-colors: active) {
+  html[data-aura-theme] {
+    --aura-canvas: Canvas !important;
+    --aura-surface: Canvas !important;
+    --aura-card-glass: Canvas !important;
+    --aura-surface-sidebar: Canvas !important;
+    --aura-nav-glass: Canvas !important;
+    --aura-identity-glass: Canvas !important;
+    --aura-profile-glass: Canvas !important;
+    --aura-card-finish: none !important;
+    --aura-nav-finish: none !important;
+    --aura-identity-finish: none !important;
+    --aura-profile-finish: none !important;
+    --aura-material-edge: ButtonBorder !important;
+    --aura-raised: Canvas !important;
+    --aura-soft: Canvas !important;
+    --aura-text: CanvasText !important;
+    --aura-muted: CanvasText !important;
+    --aura-border: ButtonBorder !important;
+    --aura-accent: LinkText !important;
+    --aura-accent-hover: LinkText !important;
+    --aura-on-accent: Canvas !important;
+    --aura-selected: Canvas !important;
+    --aura-hover: Canvas !important;
+    --aura-active: Canvas !important;
+    --aura-control-border: ButtonBorder !important;
+    --aura-disabled-surface: Canvas !important;
+    --aura-disabled-text: GrayText !important;
+    --aura-status-danger: CanvasText !important;
+    --aura-status-success: CanvasText !important;
+    --aura-accent-active: LinkText !important;
+    --aura-overlay: Canvas !important;
+    --aura-modal-shadow: none !important;
+    --aura-nav-field: Canvas !important;
+    --aura-shadow: none !important;
+    --aura-popup-shadow: none !important;
+    --aura-wallpaper: none !important;
+    --aura-nav: Canvas !important;
+    --aura-nav-gradient: none !important;
+    --aura-nav-text: CanvasText !important;
+    --aura-nav-muted: CanvasText !important;
+    --aura-nav-accent: LinkText !important;
+    --aura-nav-border: ButtonBorder !important;
+    --aura-identity: Canvas !important;
+    --aura-identity-gradient: none !important;
+    --aura-identity-text: CanvasText !important;
+    --aura-identity-muted: CanvasText !important;
+    --aura-profile-gradient: none !important;
+    --aura-primary-finish: none !important;
+    --aura-scene-color: Canvas !important;
+    --aura-scene-art: none !important;
+  }
+  html[data-aura-theme] .aura-scene-overlay {
+    display: none !important;
+  }
+}

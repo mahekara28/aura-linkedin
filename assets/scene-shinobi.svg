@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="460" viewBox="0 0 1920 460" fill="none">
+  <defs>
+    <linearGradient id="tarmac" x1="1040" y1="140" x2="1760" y2="390" gradientUnits="userSpaceOnUse"><stop stop-color="#12161c" stop-opacity=".05"/><stop offset=".55" stop-color="#10151b" stop-opacity=".7"/><stop offset="1" stop-color="#14191f" stop-opacity=".18"/></linearGradient>
+    <linearGradient id="edge" x1="650" y1="0" x2="1920" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#d1d8df" stop-opacity="0"/><stop offset=".4" stop-color="#d1d8df" stop-opacity=".75"/><stop offset="1" stop-color="#d1d8df" stop-opacity=".12"/></linearGradient>
+    <linearGradient id="red" x1="1100" y1="80" x2="1770" y2="400" gradientUnits="userSpaceOnUse"><stop stop-color="#e01e32" stop-opacity=".05"/><stop offset=".48" stop-color="#f02a3e" stop-opacity=".86"/><stop offset="1" stop-color="#ed5964" stop-opacity=".1"/></linearGradient>
+  </defs>
+  <path d="M1935 80H1460C1286 80 1120 148 1160 235C1190 300 1374 255 1468 291C1535 317 1612 363 1935 350V414C1623 435 1508 373 1439 347C1354 315 1158 359 1104 271C1013 125 1221 30 1460 30H1935Z" fill="url(#tarmac)"/>
+  <path d="M1930 49H1460C1240 49 1069 130 1131 253C1178 331 1357 283 1454 320C1532 350 1616 404 1930 381" stroke="url(#edge)" stroke-width="1.5"/>
+  <path d="M1930 79H1460C1286 79 1120 148 1160 235C1190 300 1374 255 1468 291C1535 317 1612 363 1930 350" stroke="url(#red)" stroke-width="8"/>
+  <path d="M1930 79H1460C1286 79 1120 148 1160 235C1190 300 1374 255 1468 291C1535 317 1612 363 1930 350" stroke="#f4f2ed" stroke-opacity=".62" stroke-width="7" stroke-dasharray="14 32"/>
+  <path d="M1930 109H1460C1323 109 1188 149 1194 208C1201 254 1387 218 1490 255C1577 286 1650 329 1930 315" stroke="url(#edge)" stroke-width=".7"/>
+  <path d="M1930 125H1465C1358 125 1241 151 1236 191C1232 220 1390 191 1516 226C1614 254 1691 296 1930 286" stroke="url(#edge)" stroke-width=".6" opacity=".45"/>
+  <path d="M668 382H1013M668 386V378M1013 386V378M1047 382H1087M1097 382H1114" stroke="#bec8d1" stroke-opacity=".28" stroke-width=".8"/>
+  <path d="M1006 111L1033 96M1015 125L1042 110M1024 139L1051 124M1033 153L1060 138" stroke="#c7cfd7" stroke-width="1" stroke-opacity=".28"/>
+</svg>

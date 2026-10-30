@@ -1,0 +1,132 @@
+/* A photographic environment with two finite, inert light exposures. */
+html[data-aura-theme="bloom"] {
+  --aura-cinema-light:url("../assets/light-bloom.webp");
+  --aura-environment-image:url("../assets/pink-satin.webp");
+  --aura-world-ground:#f5e8eb;
+  --aura-world-veil:linear-gradient(110deg,#f7e7ed65,#f5e5eb18 50%,#e9cbd344),linear-gradient(0deg,#ebd2d944,transparent 55%,#f7e9ee32);
+  --aura-world-cover-veil:linear-gradient(115deg,#ebc6d333,#fff0f212 60%,#edcfda26);
+}
+html[data-aura-theme="shinobi"] {
+  --aura-cinema-light:url("../assets/light-shinobi.webp");
+  --aura-environment-image:url("../assets/motorsport-track.webp");
+  --aura-world-ground:#101114;
+  --aura-world-veil:linear-gradient(100deg,#090b134d,#0a0d1838 48%,#090b1366),linear-gradient(0deg,#090b1399,transparent 60%,#0a0d1326);
+  --aura-world-cover-veil:linear-gradient(115deg,#07090e26,transparent 56%,#0a0d1355);
+}
+html[data-aura-theme="orbit"] {
+  --aura-cinema-light:url("../assets/light-orbit.webp");
+  --aura-environment-image:url("../assets/cosmic-galaxy.webp");
+  --aura-cinema-stars:url("../assets/light-orbit-stars.webp");
+  --aura-world-ground:#080c19;
+  --aura-world-veil:linear-gradient(110deg,#080b1b52,#0b103329 48%,#080b1b66),linear-gradient(0deg,#060b1d88,transparent 62%,#0b103329);
+  --aura-world-cover-veil:linear-gradient(115deg,#080c1922,transparent 55%,#10172c33);
+}
+html[data-aura-theme="marvel"] {
+  --aura-cinema-light:url("../assets/light-marvel.webp");
+  --aura-environment-image:url("../assets/marvel-alloy.webp");
+  --aura-world-ground:#090d14;
+  --aura-world-veil:linear-gradient(115deg,#080c1655,#0e15222b 48%,#080c1666),linear-gradient(0deg,#080c1699,transparent 60%,#0a101a33);
+  --aura-world-cover-veil:linear-gradient(115deg,#080c1626,transparent 55%,#0e152244);
+}
+
+/* An isolated body keeps the fixed image above its background and below every
+   normal-flow control. No layout wrapper, scroll container or modal is moved. */
+html[data-aura-theme][data-aura-decorations="on"] body { isolation:isolate; }
+html[data-aura-theme] .aura-world-environment {
+  position:fixed !important; inset:0 !important; z-index:-1 !important; overflow:hidden !important;
+  pointer-events:none !important; user-select:none !important; contain:strict;
+  background-color:var(--aura-world-ground) !important;
+  background-image:var(--aura-world-veil),var(--aura-environment-image,none) !important;
+  background-repeat:no-repeat !important; background-size:cover !important;
+  background-position:var(--aura-environment-position,center) !important;
+}
+html[data-aura-theme] .aura-world-environment * { pointer-events:none !important; }
+/* Older runtimes can retain their measured gutter nodes. They no longer paint:
+   the same single photograph now spans the page instead of two cropped motifs. */
+html[data-aura-theme] :is(.aura-world-margin-left,.aura-world-margin-right,.aura-world-margin-art) { display:none !important; }
+
+/* Older builds may retain presentation nodes until the next page refresh. */
+html[data-aura-theme] :is(.aura-world-stage,.aura-world-caption,.aura-world-edition,.aura-world-title,.aura-world-hint) { display:none !important; }
+
+/* Only covers that the runtime has established as empty receive this artwork.
+   Personal cover photographs are never replaced, tinted or cropped. */
+html[data-aura-theme] [data-aura-cover][data-aura-photo-cover="false"] > .aura-scene-overlay[data-aura-placement="profile"] .aura-scene-art {
+  background-image:var(--aura-scene-art),var(--aura-world-cover-veil),var(--aura-environment-image) !important;
+  background-position:right center,var(--aura-environment-position,center),var(--aura-environment-position,center) !important; background-size:cover !important;
+}
+
+/* A two-pixel finish stays below navigation, away from labels and search. */
+html[data-aura-theme][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] {
+  inset:auto 0 0 !important; height:2px !important; display:block !important; z-index:0 !important;
+  border-radius:0 !important; opacity:.65;
+}
+html[data-aura-theme][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] .aura-scene-art {
+  background-size:100% 2px !important; background-repeat:no-repeat !important; background-position:center !important;
+}
+html[data-aura-theme="bloom"][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] .aura-scene-art {
+  background-image:linear-gradient(90deg,#e2b7c700,#e2b7c780 24%,#ffeaf0b0 50%,#e2b7c780 76%,#e2b7c700) !important;
+}
+html[data-aura-theme="shinobi"][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] .aura-scene-art {
+  background-image:linear-gradient(90deg,#e32636 0 12%,#d8dce4a0 12% 12.5%,#e3263600 12.5% 88%,#e32636 88%) !important;
+}
+html[data-aura-theme="orbit"][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] .aura-scene-art {
+  background-image:linear-gradient(90deg,transparent,#8291c445 30%,#d1c8ff80 50%,#8291c445 70%,transparent) !important;
+}
+html[data-aura-theme="marvel"][data-aura-decorations="on"] .aura-scene-overlay[data-aura-placement="header"] .aura-scene-art {
+  background-image:linear-gradient(90deg,transparent,#b7935555 26%,#e9d5ad80 44%,#b4e3ff90 56%,#748b9a55 74%,transparent) !important;
+}
+
+html[data-aura-theme][data-aura-decorations="off"] .aura-world-environment { display:none !important; }
+@media (forced-colors:active) {
+  html[data-aura-theme] .aura-world-environment { display:none !important; }
+}
+
+/* These are real photographic highlights isolated offline from each source.
+   WAAPI supplies finite opacity/transform tracks, never per-frame layout work.
+   All lighting is behind LinkedIn; the reading surfaces remain stationary. */
+html[data-aura-theme] .aura-world-environment > :is(.aura-world-light,.aura-world-flare) {
+  position:absolute; inset:0; display:block; opacity:0; pointer-events:none !important;
+  background-repeat:no-repeat; background-position:var(--aura-environment-position,center);
+  background-size:cover; transform-origin:center; mix-blend-mode:screen;
+}
+html[data-aura-theme] .aura-world-light { background-image:var(--aura-cinema-light); }
+html[data-aura-theme="bloom"] .aura-world-flare {
+  background-image:var(--aura-cinema-light);
+  mask-image:linear-gradient(112deg,transparent 18%,#000 36%,#000 45%,transparent 67%);
+}
+html[data-aura-theme="orbit"] .aura-world-flare { background-image:var(--aura-cinema-stars); }
+/* A long-exposure strip follows the racing photograph's low horizon. */
+html[data-aura-theme="shinobi"] .aura-world-flare {
+  inset:50% -25% 23%; transform-origin:left center;
+  background-image:linear-gradient(93deg,transparent 16%,#e3263630 32%,#ff6675b0 47%,#ffede5d0 49%,transparent 71%),
+    linear-gradient(93deg,transparent 30%,#c5cbd480 50%,transparent 72%);
+  background-size:100% 2px,100% 1px;
+  background-position:center 44%,center 49%;
+  mask-image:linear-gradient(90deg,transparent,#000 35%,#000 60%,transparent);
+}
+/* A narrow reflection crosses the photographed alloy's vertical seams. */
+html[data-aura-theme="marvel"] .aura-world-flare {
+  inset:-10% 10%;
+  background-image:linear-gradient(90deg,transparent 30%,#e5bd7520 43%,#e9d7a855 48%,#d2edff70 50%,#83bbdd20 53%,transparent 66%);
+  mask-image:linear-gradient(0deg,transparent,#000 30%,#000 65%,transparent);
+}
+/* CSS is a second guard if a preference changes before JS receives its event. */
+html[data-aura-theme][data-aura-motion="off"] .aura-world-environment > span,
+html[data-aura-theme][data-aura-visible="false"] .aura-world-environment > span,
+html[data-aura-theme][data-aura-decorations="off"] .aura-world-environment > span {
+  display:none !important;
+}
+@media (prefers-reduced-motion:reduce), (forced-colors:active) {
+  html[data-aura-theme] .aura-world-environment > span { display:none !important; }
+}
+
+/* One engraved composition behind the interface. Personal cover photos stay intact. */
+html[data-aura-theme][data-aura-decorations="on"] .aura-world-environment::before {
+  content:""; position:absolute; width:min(1080px,100vw); height:clamp(230px,31vw,420px);
+  right:-5vw; bottom:4vh; pointer-events:none !important;
+  background:var(--aura-scene-art) right center / contain no-repeat;
+  opacity:var(--aura-signature-opacity,.65);
+}
+@media (max-width:1000px) {
+  html[data-aura-theme] .aura-world-environment::before { display:none; }
+}

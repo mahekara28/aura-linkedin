@@ -1,0 +1,24 @@
+/* Chrome substitutes its built-in extension ID in manifest-injected CSS.
+   Standalone previews use the relative fallbacks in world.css/themes.css.
+   Explicit extension URLs avoid resolving photo URLs against linkedin.com. */
+html[data-aura-theme="bloom"] {
+  --aura-cinema-light:url("chrome-extension://__MSG_@@extension_id__/assets/light-bloom.webp");
+  --aura-scene-art: url("chrome-extension://__MSG_@@extension_id__/assets/scene-bloom.svg");
+  --aura-environment-image: url("chrome-extension://__MSG_@@extension_id__/assets/pink-satin.webp");
+}
+html[data-aura-theme="orbit"] {
+  --aura-cinema-stars:url("chrome-extension://__MSG_@@extension_id__/assets/light-orbit-stars.webp");
+  --aura-cinema-light:url("chrome-extension://__MSG_@@extension_id__/assets/light-orbit.webp");
+  --aura-scene-art: url("chrome-extension://__MSG_@@extension_id__/assets/scene-orbit.svg");
+  --aura-environment-image: url("chrome-extension://__MSG_@@extension_id__/assets/cosmic-galaxy.webp");
+}
+html[data-aura-theme="shinobi"] {
+  --aura-cinema-light:url("chrome-extension://__MSG_@@extension_id__/assets/light-shinobi.webp");
+  --aura-scene-art: url("chrome-extension://__MSG_@@extension_id__/assets/scene-shinobi.svg");
+  --aura-environment-image: url("chrome-extension://__MSG_@@extension_id__/assets/motorsport-track.webp");
+}
+html[data-aura-theme="marvel"] {
+  --aura-cinema-light:url("chrome-extension://__MSG_@@extension_id__/assets/light-marvel.webp");
+  --aura-scene-art: url("chrome-extension://__MSG_@@extension_id__/assets/scene-marvel.svg");
+  --aura-environment-image: url("chrome-extension://__MSG_@@extension_id__/assets/marvel-alloy.webp");
+}

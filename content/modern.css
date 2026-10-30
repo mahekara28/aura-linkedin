@@ -1,0 +1,529 @@
+/*
+ * LinkedIn's SDUI renderer uses generated class names. modern.js identifies
+ * painted surfaces by their semantics and original computed colors instead.
+ * These rules never replace images, SVG fills, or a member's cover photo.
+ */
+html[data-aura-theme] {
+  --aura-modern-text: var(--aura-text);
+  --aura-modern-muted: var(--aura-muted);
+  --aura-modern-accent: var(--aura-accent);
+  --aura-modern-border: var(--aura-border);
+  --aura-focus-ring: var(--aura-accent);
+}
+
+html[data-aura-theme] [data-aura-modern-surface="canvas"] {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html[data-aura-theme] [data-aura-modern-surface="card"]:not([data-aura-modern-control]) {
+  background-color: var(--aura-surface-card) !important;
+  background-image: var(--aura-card-finish) !important;
+  border-radius: var(--aura-radius-card) !important;
+  box-shadow: var(--aura-elevation-card) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-surface="inset"]:not([data-aura-modern-control]) {
+  background-color: var(--aura-soft) !important;
+  background-image: none !important;
+}
+
+html[data-aura-theme] [data-aura-modern-surface="transparent"]:not([data-aura-modern-control]) {
+  background-color: transparent !important;
+  background-image: none !important;
+}
+
+html[data-aura-theme] [data-aura-modern-ink="text"] {
+  color: var(--aura-modern-text) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-ink="muted"] {
+  color: var(--aura-modern-muted) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-ink="accent"] {
+  color: var(--aura-modern-accent) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-ink="on-accent"] {
+  color: var(--aura-on-accent) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-border="neutral"] {
+  border-color: var(--aura-modern-border) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-border="accent"] {
+  border-color: var(--aura-modern-accent) !important;
+}
+
+/* The top card has a continuous material, including the area below its photo.
+   Neutral inner wrappers are transparent; the user's cover remains untouched. */
+html[data-aura-theme] :is(
+  [data-aura-surface="profile"],
+  [id^="com.linkedin.sdui.profile.card"][id$="Topcard"]
+):not([data-aura-cover]) {
+  isolation: isolate;
+  background-color: var(--aura-profile-glass) !important;
+  background-image: var(--aura-profile-finish) !important;
+  border-color: var(--aura-border) !important;
+  border-radius: var(--aura-radius-card) !important;
+  box-shadow: var(--aura-elevation-card) !important;
+}
+
+html[data-aura-theme] [data-aura-surface="identity"] {
+  --aura-modern-text: var(--aura-identity-text);
+  --aura-modern-muted: var(--aura-identity-muted);
+  background-color: var(--aura-identity-glass) !important;
+  background-image: var(--aura-identity-finish) !important;
+}
+
+/* The profile classifier also marks this neutral span as a transparent wrapper.
+   Its explicit control backing wins within that profile, without repainting
+   the member's cover or changing the button's native geometry. */
+html[data-aura-theme] :is([data-aura-surface="profile"], [id^="com.linkedin.sdui.profile.card"][id$="Topcard"]) button[componentkey$="_cover_edit_button"] > span {
+  background-color: var(--aura-raised) !important;
+  background-image: none !important;
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is([data-aura-surface="profile"], [id^="com.linkedin.sdui.profile.card"][id$="Topcard"]) button[componentkey$="_cover_edit_button"] > span :is([data-aura-modern-ink], svg) {
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] :is([data-aura-surface="profile"], [id^="com.linkedin.sdui.profile.card"][id$="Topcard"]) button[componentkey$="_cover_edit_button"]:hover > span {
+  background-color: var(--aura-hover) !important;
+}
+
+/* Extend the dark material to the header shell, without changing its sticky
+   position, height, overflow, or the stacking order of LinkedIn's menus. */
+html[data-aura-theme] :is(
+  [data-testid="primary-nav"],
+  [data-aura-modern-surface="header"],
+  header:has([data-testid="primary-nav"])
+) {
+  --aura-modern-text: var(--aura-nav-text);
+  --aura-modern-muted: var(--aura-nav-muted);
+  --aura-modern-accent: var(--aura-nav-accent);
+  --aura-modern-border: var(--aura-nav-border);
+  --aura-focus-ring: var(--aura-nav-accent);
+  --color-text: var(--aura-nav-text) !important;
+  --color-text-solid: var(--aura-nav-text) !important;
+  --color-text-low-emphasis: var(--aura-nav-muted) !important;
+  --color-icon: var(--aura-nav-muted) !important;
+  --color-icon-nav: var(--aura-nav-muted) !important;
+  --color-icon-nav-active: var(--aura-nav-text) !important;
+  isolation: isolate;
+  background-color: var(--aura-nav-glass) !important;
+  background-image: var(--aura-nav-finish) !important;
+  color: var(--aura-nav-text) !important;
+  border-color: var(--aura-nav-border) !important;
+  box-shadow: inset 0 -1px 0 var(--aura-nav-border) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(
+  [data-aura-modern-surface="card"],
+  [data-aura-modern-surface="inset"],
+  [data-aura-modern-surface="transparent"]
+):not(input, textarea, select, [data-aura-modern-control]) {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(a[href], button, [role="button"]) {
+  color: var(--aura-modern-muted) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(
+  a[href]:hover, button:hover, [role="button"]:hover,
+  [aria-current="page"], [aria-selected="true"]
+) {
+  color: var(--aura-modern-accent) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] [role="search"] {
+  --aura-nav-owned-paint: search;
+  background-color: var(--aura-nav-field) !important;
+  background-image: none !important;
+  color: var(--aura-nav-text) !important;
+  border-color: var(--aura-nav-border) !important;
+  border-radius: var(--aura-radius-field) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-nav-border) !important;
+}
+
+html[data-aura-theme] :is(#global-nav, [data-testid="primary-nav"]) [role="search"] :is(input[type="search"], input[type="text"], input[data-testid="typeahead-input"]) {
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--aura-nav-text) !important;
+  caret-color: var(--aura-nav-accent) !important;
+  /* Retain native border dimensions while the outer pill owns the outline. */
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* The enclosing search pill already supplies the full focus-within ring.
+   Avoid a second rectangular outline inside that visible keyboard target. */
+html[data-aura-theme] [data-testid="primary-nav"] [role="search"] :is(input[type="search"], input[type="text"], input[data-testid="typeahead-input"]):focus-visible {
+  outline: none !important;
+}
+
+html[data-aura-theme] figcaption[data-aura-modern-surface="inset"] {
+  border-radius: 0 !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] [role="search"] input::placeholder {
+  color: var(--aura-nav-muted) !important;
+  opacity: 1;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(a, button, input, [tabindex]):focus-visible {
+  outline-color: var(--aura-modern-accent) !important;
+}
+
+/* A menu can be mounted inside the navigation. Its colors must reset there,
+   so dark header text cannot leak into an otherwise light popup. */
+html[data-aura-theme] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [data-aura-modern-popup]) {
+  --aura-surface-card: var(--aura-raised);
+  --aura-card-finish: none;
+  --aura-focus-ring: var(--aura-accent);
+  --aura-modern-text: var(--aura-text);
+  --aura-modern-muted: var(--aura-muted);
+  --aura-modern-accent: var(--aura-accent);
+  --aura-modern-border: var(--aura-border);
+  --color-text: var(--aura-text) !important;
+  --color-text-solid: var(--aura-text) !important;
+  --color-text-low-emphasis: var(--aura-muted) !important;
+  --color-icon: var(--aura-muted) !important;
+  --color-border: var(--aura-border) !important;
+  color: var(--aura-text) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [data-aura-modern-popup])[data-aura-modern-surface]:not([data-aura-modern-control]),
+html[data-aura-theme] [data-testid="primary-nav"] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [data-aura-modern-popup]) [data-aura-modern-surface="card"]:not([data-aura-modern-control]) {
+  background-color: var(--aura-raised) !important;
+  background-image: none !important;
+  border-color: var(--aura-border) !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [data-aura-modern-popup])[data-aura-modern-surface]:not([data-aura-modern-control]) {
+  box-shadow: var(--aura-elevation-popover) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [data-aura-modern-popup]) [data-aura-modern-surface="inset"]:not([data-aura-modern-control], input, textarea, select, [role="textbox"]) {
+  background-color: var(--aura-soft) !important;
+  box-shadow: none !important;
+}
+
+/* Background and foreground change together for blue LinkedIn CTAs. This
+   deliberately follows surface rules, including those for header popups. */
+html[data-aura-theme] [data-aura-modern-control="accent"] {
+  --aura-modern-text: var(--aura-on-accent);
+  --aura-modern-muted: var(--aura-on-accent);
+  --aura-modern-accent: var(--aura-on-accent);
+  background-color: var(--aura-accent) !important;
+  background-image: none !important;
+  border-color: var(--aura-accent) !important;
+  color: var(--aura-on-accent) !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control="accent"] :is([data-aura-modern-ink], svg),
+html[data-aura-theme] [data-testid="primary-nav"] [data-aura-modern-control="accent"] {
+  color: var(--aura-on-accent) !important;
+}
+
+/* The same material finish belongs to legacy and generated-class controls.
+   Disabled controls and the details-off preference retain a flat surface. */
+html[data-aura-theme][data-aura-decorations="on"] [data-aura-modern-control="accent"]:not(:disabled, [aria-disabled="true"], [disabled] *, [aria-disabled="true"] *) {
+  background-image: var(--aura-primary-finish) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control="accent"]:not(:disabled, [aria-disabled="true"], [disabled] *, [aria-disabled="true"] *):hover {
+  background-color: var(--aura-accent-hover) !important;
+  border-color: var(--aura-accent-hover) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control="outline"] {
+  --aura-modern-text: var(--aura-accent);
+  --aura-modern-muted: var(--aura-accent);
+  --aura-modern-accent: var(--aura-accent);
+  background-color: transparent !important;
+  background-image: none !important;
+  color: var(--aura-accent) !important;
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control="outline"] :is([data-aura-modern-ink], svg),
+html[data-aura-theme] [data-testid="primary-nav"] [data-aura-modern-control="outline"] {
+  color: var(--aura-accent) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control="outline"]:not(:disabled, [aria-disabled="true"], [disabled] *, [aria-disabled="true"] *):hover {
+  background-color: var(--aura-soft) !important;
+}
+
+html[data-aura-theme] [data-aura-modern-control]:is(:disabled, [aria-disabled="true"], [disabled] *, [aria-disabled="true"] *) {
+  --aura-on-accent: var(--aura-disabled-ink);
+  background-color: var(--aura-disabled-bg) !important;
+  color: var(--aura-disabled-ink) !important;
+  --aura-modern-text: var(--aura-disabled-ink);
+  --aura-modern-muted: var(--aura-disabled-ink);
+  --aura-modern-accent: var(--aura-disabled-ink);
+  opacity: 1;
+}
+
+/* Interaction states use the same local palette as their surface. Selectors
+   follow semantics, not generated class names, and never change control size. */
+html[data-aura-theme] :is(main, [role="main"], [data-testid="primary-nav"], dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"]) :is(a[href], button, input, select, textarea, [tabindex], [role="textbox"]):focus-visible {
+  outline: 2px solid var(--aura-focus-ring) !important;
+  outline-offset: 3px !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] [role="search"]:focus-within {
+  box-shadow: inset 0 0 0 2px var(--aura-nav-accent), 0 0 0 3px color-mix(in srgb, var(--aura-nav-accent) 14%, transparent) !important;
+}
+
+html[data-aura-theme] [data-testid="primary-nav"] :is(a[href], button, [role="button"]):is(:hover, [aria-current="page"], [aria-expanded="true"]):not(:is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [role="tooltip"], [data-aura-modern-popup]) *) {
+  --aura-modern-text: var(--aura-modern-accent);
+  --aura-modern-muted: var(--aura-modern-accent);
+}
+
+html[data-aura-theme] :is(main, [role="main"], dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"]) :is(input:not([type="checkbox"], [type="radio"], [type="range"], [type="color"], [type="hidden"], [type="submit"], [type="button"]), textarea, select, [contenteditable="true"][role="textbox"]) {
+  background-color: var(--aura-field-bg) !important;
+  color: var(--aura-text) !important;
+  caret-color: var(--aura-accent) !important;
+  border-color: var(--aura-border) !important;
+}
+
+html[data-aura-theme="orbit"] :is(main, [role="main"], dialog, [role="dialog"]) :is(input, textarea, select) {
+  color-scheme: dark;
+}
+
+html[data-aura-theme] :is(main, [role="main"], dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"]) :is(input, textarea)::placeholder {
+  color: var(--aura-muted) !important;
+  opacity: 1;
+}
+
+html[data-aura-theme] :is(main, [role="main"], dialog, [role="dialog"]) :is(input[type="checkbox"], input[type="radio"], input[type="range"]) {
+  accent-color: var(--aura-accent);
+}
+
+html[data-aura-theme] :is([role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"], [role="option"]):is(:hover, :focus-visible, [aria-selected="true"], [aria-checked="true"]) {
+  --aura-modern-text: var(--aura-accent);
+  --aura-modern-muted: var(--aura-accent);
+  background-color: var(--aura-state-selected) !important;
+  color: var(--aura-accent) !important;
+  box-shadow: inset 3px 0 0 var(--aura-accent) !important;
+}
+
+/* More specific than transparent wrappers in navigation-hosted popovers. */
+html[data-aura-theme] [data-testid="primary-nav"] :is([role="menu"], [role="listbox"]) :is([role="menuitem"], [role="menuitemcheckbox"], [role="menuitemradio"], [role="option"]):is(:hover, :focus-visible, [aria-selected="true"], [aria-checked="true"]) {
+  background-color: var(--aura-state-selected) !important;
+  color: var(--aura-accent) !important;
+  box-shadow: inset 3px 0 0 var(--aura-accent) !important;
+}
+
+html[data-aura-theme] [role="tab"][data-aura-modern-ink][aria-selected="true"] {
+  --aura-modern-text: var(--aura-accent);
+  --aura-modern-muted: var(--aura-accent);
+  color: var(--aura-accent) !important;
+  box-shadow: inset 0 -2px 0 var(--aura-accent) !important;
+}
+
+html[data-aura-theme] button[data-aura-modern-ink][aria-pressed="true"]:not([data-aura-modern-control="accent"]) {
+  --aura-modern-text: var(--aura-accent);
+  --aura-modern-muted: var(--aura-accent);
+  background-color: var(--aura-state-selected) !important;
+  color: var(--aura-accent) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-border) !important;
+}
+
+html[data-aura-theme] :is(button, [role="button"]):is(:disabled, [aria-disabled="true"]):has([data-aura-modern-control]) {
+  opacity: 1;
+  cursor: default;
+}
+
+html[data-aura-theme] :is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"])[data-aura-modern-surface="card"] {
+  background-color: var(--aura-raised) !important;
+}
+
+html[data-aura-theme] dialog::backdrop {
+  background: var(--aura-overlay);
+}
+
+
+/* Popup hosts are semantic panels, including their observed painted wrapper.
+   They reset header inheritance before content, fields and controls are painted. */
+html[data-aura-theme] [data-aura-modern-popup="panel"]:not([data-aura-modern-control]) {
+  background-color: var(--aura-popover-bg) !important;
+  background-image: none !important;
+  border-radius: var(--aura-radius-popover) !important;
+  box-shadow: var(--aura-elevation-popover) !important;
+}
+/* A native popover owns elevation for its direct semantic content. LinkedIn's
+   Resources panel paints both the padded outer popover and its static menu.
+   Keep the shell shadow once; an independently opened nested popover retains
+   its own elevation. No spacing, positioning or menu geometry is changed. */
+html[data-aura-theme] [popover][data-aura-modern-popup="panel"] > :is([role="menu"], [role="listbox"])[data-aura-modern-popup="panel"]:not([popover], [data-floating-ui-focusable]) {
+  box-shadow: none !important;
+}
+
+html[data-aura-theme] :is(dialog,[role="dialog"],[role="alertdialog"])[data-aura-modern-popup] {
+  background-color: var(--aura-modal-bg) !important;
+  box-shadow: var(--aura-elevation-modal) !important;
+}
+html[data-aura-theme] [data-aura-modern-popup="tooltip"]:not([data-aura-modern-control]) {
+  --aura-modern-text: var(--aura-tooltip-ink);
+  --aura-modern-muted: var(--aura-tooltip-ink);
+  background-color: var(--aura-tooltip-bg) !important;
+  color: var(--aura-tooltip-ink) !important;
+  border-radius: var(--aura-radius-field) !important;
+  box-shadow: var(--aura-elevation-popover) !important;
+}
+html[data-aura-theme] [data-aura-modern-control="accent"]:not(:disabled,[aria-disabled="true"]):active {
+  background-color: var(--aura-button-primary-active) !important;
+}
+html[data-aura-theme] [data-aura-modern-control="outline"]:not(:disabled,[aria-disabled="true"]):active {
+  background-color: var(--aura-state-active) !important;
+}
+html[data-aura-theme] [data-aura-modern-control]:not(.artdeco-button--circle) {
+  border-radius: var(--aura-radius-control) !important;
+}
+html[data-aura-theme] :is(button,[role="button"])[data-aura-modern-ink]:not([data-aura-modern-control]):not(:disabled,[aria-disabled="true"]):hover {
+  background-color: var(--aura-state-hover) !important;
+}
+/* Real navigation actions sit inside lists/wrappers. Their pale navigation ink
+   needs the dark local hover material; menus and dialogs retain their own body
+   palette, including buttons that also expose an expanded state. */
+html[data-aura-theme] [data-testid="primary-nav"] :is(a[href], button, [role="button"]):not([data-aura-modern-control]):not(:disabled, [aria-disabled="true"]):is(:hover, [aria-expanded="true"]):not(:is(dialog, [role="dialog"], [role="alertdialog"], [popover], [role="menu"], [role="listbox"], [role="tooltip"], [data-aura-modern-popup]) *) {
+  /* Classifier provenance: this paint can exist before any runtime markers
+     when an expanded menu survives disabling and re-enabling the extension. */
+  --aura-nav-owned-paint: action;
+  background-color: var(--aura-nav-field) !important;
+}
+/* Preserve native border widths/styles and independent warning/error edges. */
+html[data-aura-theme] [data-aura-modern-border-top="neutral"] { border-top-color: var(--aura-modern-border) !important; }
+html[data-aura-theme] [data-aura-modern-border-top="accent"] { border-top-color: var(--aura-modern-accent) !important; }
+html[data-aura-theme] [data-aura-modern-border-right="neutral"] { border-right-color: var(--aura-modern-border) !important; }
+html[data-aura-theme] [data-aura-modern-border-right="accent"] { border-right-color: var(--aura-modern-accent) !important; }
+html[data-aura-theme] [data-aura-modern-border-bottom="neutral"] { border-bottom-color: var(--aura-modern-border) !important; }
+html[data-aura-theme] [data-aura-modern-border-bottom="accent"] { border-bottom-color: var(--aura-modern-accent) !important; }
+html[data-aura-theme] [data-aura-modern-border-left="neutral"] { border-left-color: var(--aura-modern-border) !important; }
+html[data-aura-theme] [data-aura-modern-border-left="accent"] { border-left-color: var(--aura-modern-accent) !important; }
+
+/* SDUI secondary buttons paint their outline as a sharp shadow on the
+   direct label wrapper. JS identifies the original ring, separately from real
+   borders and elevation shadows, so only that native outline is recolored. */
+html[data-aura-theme] [data-aura-modern-ring] {
+  --aura-modern-ring-width: 1px;
+  box-shadow: inset 0 0 0 var(--aura-modern-ring-width) var(--aura-modern-ring-color) !important;
+}
+html[data-aura-theme] [data-aura-modern-ring="accent"] { --aura-modern-ring-color: var(--aura-modern-accent); }
+html[data-aura-theme] [data-aura-modern-ring="neutral"] { --aura-modern-ring-color: var(--aura-modern-border); }
+html[data-aura-theme] [data-aura-modern-ring-size="2"] { --aura-modern-ring-width: 2px; }
+html[data-aura-theme] [data-aura-modern-ring-size="3"] { --aura-modern-ring-width: 3px; }
+html[data-aura-theme] [data-aura-modern-ring-placement="outset"] {
+  box-shadow: 0 0 0 var(--aura-modern-ring-width) var(--aura-modern-ring-color) !important;
+}
+html[data-aura-theme] [data-aura-modern-ring]:is(:disabled, [aria-disabled="true"], [disabled] *, [aria-disabled="true"] *) {
+  --aura-modern-ring-color: var(--aura-disabled-border);
+}
+
+/* Verified hidden-input filter pills use the actual checked property. LinkedIn
+   leaves stale checked attributes behind, so attribute observers cannot supply
+   their selected paint. The paired label remains the native clickable target. */
+html[data-aura-theme] label[data-aura-modern-choice="pill"] {
+  --aura-modern-text: var(--aura-text);
+  --aura-modern-muted: var(--aura-text);
+  --aura-modern-accent: var(--aura-text);
+  background-color: transparent !important;
+  color: var(--aura-text) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-border) !important;
+}
+html[data-aura-theme] input:not(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="pill"]:hover {
+  background-color: var(--aura-state-hover) !important;
+}
+html[data-aura-theme] input:checked + label[data-aura-modern-choice="pill"] {
+  --aura-modern-text: var(--aura-on-accent);
+  --aura-modern-muted: var(--aura-on-accent);
+  --aura-modern-accent: var(--aura-on-accent);
+  background-color: var(--aura-accent) !important;
+  color: var(--aura-on-accent) !important;
+  box-shadow: none !important;
+}
+html[data-aura-theme] input:checked:not(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="pill"]:hover {
+  background-color: var(--aura-accent-hover) !important;
+}
+html[data-aura-theme] input:checked:not(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="pill"]:active {
+  background-color: var(--aura-button-primary-active) !important;
+}
+html[data-aura-theme] input:focus-visible + label[data-aura-modern-choice="pill"] {
+  outline: 2px solid var(--aura-focus-ring) !important;
+  outline-offset: 3px !important;
+}
+html[data-aura-theme] input:is(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="pill"] {
+  --aura-modern-text: var(--aura-disabled-ink);
+  --aura-modern-muted: var(--aura-disabled-ink);
+  --aura-modern-accent: var(--aura-disabled-ink);
+  background-color: var(--aura-disabled-bg) !important;
+  color: var(--aura-disabled-ink) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-disabled-border) !important;
+}
+/* Audience controls use a separate empty label: its native 24px circle and
+   8px dot remain in place. Recolor the observed 1px inset stroke and selected
+   fill without replacing content, display, dimensions or border geometry. */
+html[data-aura-theme] label[data-aura-modern-choice="radio"]::before {
+  background-color: transparent !important;
+  box-shadow: inset 0 0 0 1px var(--aura-muted) !important;
+}
+html[data-aura-theme] label[data-aura-modern-choice="radio"]::after {
+  background-color: transparent !important;
+}
+html[data-aura-theme] input:not(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="radio"]:hover::before {
+  background-color: var(--aura-state-hover) !important;
+}
+html[data-aura-theme] input:checked + label[data-aura-modern-choice="radio"]::before {
+  background-color: var(--aura-accent) !important;
+  box-shadow: none !important;
+}
+html[data-aura-theme] input:checked + label[data-aura-modern-choice="radio"]::after {
+  background-color: var(--aura-on-accent) !important;
+}
+html[data-aura-theme] input:checked:not(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="radio"]:hover::before {
+  background-color: var(--aura-accent-hover) !important;
+}
+html[data-aura-theme] input:focus-visible + label[data-aura-modern-choice="radio"]::before {
+  outline: 2px solid var(--aura-focus-ring) !important;
+  outline-offset: 3px !important;
+}
+html[data-aura-theme] input:is(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="radio"]::before {
+  background-color: var(--aura-disabled-bg) !important;
+  box-shadow: inset 0 0 0 1px var(--aura-disabled-border) !important;
+}
+html[data-aura-theme] input:checked:is(:disabled, [aria-disabled="true"]) + label[data-aura-modern-choice="radio"]::after {
+  background-color: var(--aura-disabled-ink) !important;
+}
+html[data-aura-theme] :is(input,textarea,select,[role="textbox"])[aria-invalid="true"] {
+  border-color: var(--aura-status-danger) !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html[data-aura-theme][data-aura-motion="on"][data-aura-visible="true"] :is([data-aura-modern-control], [data-aura-modern-choice], [data-aura-modern-ring]) {
+    transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease, box-shadow 140ms ease;
+  }
+}
+
+@media (forced-colors: active) {
+  html[data-aura-theme] [data-testid="primary-nav"] [role="search"] {
+    background-color: Canvas !important;
+    border-color: ButtonBorder !important;
+    box-shadow: none !important;
+  }
+  html[data-aura-theme] [data-testid="primary-nav"] [role="search"]:focus-within {
+    outline: 2px solid Highlight !important;
+    outline-offset: 3px !important;
+  }
+}

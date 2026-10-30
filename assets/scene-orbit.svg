@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="460" viewBox="0 0 1920 460" fill="none">
+  <defs>
+    <radialGradient id="night" cx=".31" cy=".24" r=".88"><stop stop-color="#1b243b" stop-opacity=".9"/><stop offset=".56" stop-color="#070b17" stop-opacity=".97"/><stop offset="1" stop-color="#030711"/></radialGradient>
+    <linearGradient id="limb" x1="1270" y1="65" x2="1570" y2="354" gradientUnits="userSpaceOnUse"><stop stop-color="#e7edf9" stop-opacity=".05"/><stop offset=".4" stop-color="#aebee4" stop-opacity=".25"/><stop offset=".72" stop-color="#f1eaff" stop-opacity=".96"/><stop offset="1" stop-color="#9eaed5" stop-opacity=".2"/></linearGradient>
+    <linearGradient id="orbit" x1="780" y1="0" x2="1860" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#b8c9f3" stop-opacity="0"/><stop offset=".6" stop-color="#c0cce7" stop-opacity=".44"/><stop offset="1" stop-color="#d7c9ee" stop-opacity=".09"/></linearGradient>
+  </defs>
+  <g transform="rotate(-14 1395 230)" stroke="url(#orbit)">
+    <ellipse cx="1395" cy="230" rx="477" ry="148" stroke-width="1"/>
+    <path d="M900 230C900 141 1122 69 1395 69C1577 69 1737 101 1823 150" stroke-width=".65"/>
+    <path d="M967 311C1055 359 1215 391 1395 391C1668 391 1890 319 1890 230" stroke-width=".65"/>
+  </g>
+  <circle cx="1395" cy="225" r="155" fill="url(#night)"/>
+  <circle cx="1395" cy="225" r="155.5" stroke="url(#limb)" stroke-width="2.8"/>
+  <path d="M1526 142A156 156 0 0 1 1371 380" stroke="#d8e8ff" stroke-opacity=".28" stroke-width="5"/>
+  <path d="M1536 153A165 165 0 0 1 1413 389" stroke="#b4c2e9" stroke-opacity=".12" stroke-width="1"/>
+  <g stroke="#bdcce7" stroke-opacity=".35" stroke-width=".85">
+    <path d="M1395 40V53M1395 397V410M1210 225H1223M1567 225H1580M1264 94L1273 103M1517 347L1526 356"/>
+    <path d="M1615 105H1675M1645 75V135" stroke-opacity=".2"/>
+  </g>
+  <circle cx="1645" cy="105" r="2.5" fill="#d1daee" fill-opacity=".6"/>
+</svg>

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light"><title>Aura — LinkedIn appearance</title>
+  <link rel="stylesheet" href="../content/themes.css"><link rel="stylesheet" href="popup.css">
+  <script src="../shared/settings.js" defer></script><script src="popup.js" defer></script>
+</head>
+<body>
+  <main class="popup">
+    <header class="brand-row">
+      <a class="brand" id="brand-link" href="../preview.html" aria-label="Aura theme studio">aura<span>.</span></a>
+      <label class="switch-label" for="enabled-toggle"><span id="enabled-label">Theme on</span><span class="switch"><input type="checkbox" id="enabled-toggle" role="switch" checked disabled aria-label="Enable LinkedIn theme"><span class="switch-track" aria-hidden="true"></span></span></label>
+    </header>
+    <section class="intro" aria-labelledby="popup-title"><h1 id="popup-title">Your LinkedIn workspace</h1><p class="intro-copy">Choose a theme. Keep your usual workflow.</p></section>
+    <form id="theme-form">
+      <fieldset class="theme-picker" id="theme-picker" disabled><legend>APPEARANCE <span>v8.3.0</span></legend>
+        <label class="theme-card" for="theme-bloom">
+          <input type="radio" name="theme" id="theme-bloom" value="bloom" aria-describedby="bloom-description" checked>
+          <span class="mini-ui" data-aura-palette="bloom" aria-hidden="true"><span class="mini-nav"></span><span class="mini-columns"><i></i><i><b></b><b></b><b></b></i><i></i></span></span>
+          <span class="theme-description"><span class="theme-name">Girly Pop Pink</span><span class="theme-note" id="bloom-description">Blush satin · rose accents</span><span class="selected-label">Selected</span></span>
+          <span class="radio-indicator" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m4 8 2.5 2.5L12 5"/></svg></span>
+        </label>
+        <label class="theme-card" for="theme-orbit">
+          <input type="radio" name="theme" id="theme-orbit" value="orbit" aria-describedby="orbit-description">
+          <span class="mini-ui" data-aura-palette="orbit" aria-hidden="true"><span class="mini-nav"></span><span class="mini-columns"><i></i><i><b></b><b></b><b></b></i><i></i></span></span>
+          <span class="theme-description"><span class="theme-name">Cosmic / Space</span><span class="theme-note" id="orbit-description">Galaxy photography · midnight</span><span class="selected-label">Selected</span></span>
+          <span class="radio-indicator" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m4 8 2.5 2.5L12 5"/></svg></span>
+        </label>
+        <label class="theme-card" for="theme-shinobi">
+          <input type="radio" name="theme" id="theme-shinobi" value="shinobi" aria-describedby="shinobi-description">
+          <span class="mini-ui" data-aura-palette="shinobi" aria-hidden="true"><span class="mini-nav"></span><span class="mini-columns"><i></i><i><b></b><b></b><b></b></i><i></i></span></span>
+          <span class="theme-description"><span class="theme-name">F1 / Motorsport Luxury</span><span class="theme-note" id="shinobi-description">Carbon · red · brushed silver</span><span class="selected-label">Selected</span></span>
+          <span class="radio-indicator" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m4 8 2.5 2.5L12 5"/></svg></span>
+        </label>
+        <label class="theme-card" for="theme-marvel">
+          <input type="radio" name="theme" id="theme-marvel" value="marvel" aria-describedby="marvel-description">
+          <span class="mini-ui" data-aura-palette="marvel" aria-hidden="true"><span class="mini-nav"></span><span class="mini-columns"><i></i><i><b></b><b></b><b></b></i><i></i></span></span>
+          <span class="theme-description"><span class="theme-name">Marvel-inspired</span><span class="theme-note" id="marvel-description">Dark alloy · warm metallic light</span><span class="selected-label">Selected</span></span>
+          <span class="radio-indicator" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="m4 8 2.5 2.5L12 5"/></svg></span>
+        </label>
+      </fieldset>
+      <div class="details-row"><label class="decoration-label" for="decorations-toggle"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 7V3h4M13 3h4v4M17 13v4h-4M7 17H3v-4M7 7h6v6H7z" stroke="currentColor" stroke-width="1.2"/></svg><span>Signature details<span class="detail-description">Photography & surface finishes</span></span></label><span class="switch switch-small"><input type="checkbox" id="decorations-toggle" role="switch" checked disabled aria-label="Signature details"><span class="switch-track" aria-hidden="true"></span></span></div>
+      <div class="details-row"><label class="decoration-label" for="motion-toggle"><svg viewBox="0 0 20 20" fill="none" aria-hidden="true"><path d="M3 11c3-9 5 9 8 0s5-4 6-2" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg><span>Cinematic motion<span class="detail-description" id="motion-description">Satin light on page arrival</span></span></label><span class="switch switch-small"><input type="checkbox" id="motion-toggle" role="switch" checked disabled aria-label="Cinematic motion" aria-describedby="motion-description"><span class="switch-track" aria-hidden="true"></span></span></div>
+      <p class="motion-note" id="motion-note" hidden>Motion is off to respect your system preference.</p>
+    </form>
+    <footer class="popup-footer"><div class="feedback-row"><p class="save-status" id="save-status" role="status" aria-live="polite"><span class="status-dot" aria-hidden="true"></span><span id="status-text">Loading preferences…</span></p><button id="retry-save" class="retry-button" type="button" hidden>Retry</button></div><a class="studio-link" id="studio-link" href="../preview.html">Preview & settings <span aria-hidden="true">↗</span></a></footer>
+  </main>
+</body>
+</html>

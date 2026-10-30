@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aura · Sample LinkedIn profile</title>
+  <link rel="stylesheet" href="feed.css">
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="../content/themes.css">
+  <link rel="stylesheet" href="../content/details.css"><link rel="stylesheet" href="../content/world.css">
+  <script src="../shared/settings.js" defer></script>
+  
+  <script src="../content/details.js" defer></script>
+  <script src="../content/world.js" defer></script><script src="feed.js" defer></script>
+</head>
+<body class="profile-page">
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="home" viewBox="0 0 24 24"><path d="m3 10 9-7 9 7v11h-6v-7H9v7H3Z"/></symbol>
+    <symbol id="people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="4"/><path d="M2 21v-4a7 7 0 0 1 14 0v4M16 3a4 4 0 0 1 0 8M18 14a5 5 0 0 1 4 5v2"/></symbol>
+    <symbol id="case" viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="14" rx="2"/><path d="M8 7V3h8v4M3 12h18M10 12v3h4v-3"/></symbol>
+    <symbol id="chat" viewBox="0 0 24 24"><path d="M3 3h18v14H9l-6 4Z"/><path d="M7 8h10M7 12h6"/></symbol>
+    <symbol id="bell" viewBox="0 0 24 24"><path d="M3 18h18l-3-4V9a6 6 0 0 0-12 0v5ZM9 21h6"/></symbol>
+  </defs></svg>
+
+  <header class="global-nav" id="global-nav" data-aura-surface="header" data-aura-static-host>
+    <div class="nav-inner">
+      <a class="linkedin-logo" aria-label="Back to sample feed" href="feed.html">in</a>
+      <div class="search-box"><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8" cy="8" r="5"/><path d="m12 12 5 5"/></svg><span class="t-black--light">Search</span></div>
+      <nav aria-label="Sample navigation">
+        <a class="global-nav__primary-link" href="feed.html"><svg><use href="#home"/></svg>Home</a>
+        <span class="global-nav__primary-link"><svg><use href="#people"/></svg>My Network</span>
+        <span class="global-nav__primary-link"><svg><use href="#case"/></svg>Jobs</span>
+        <span class="global-nav__primary-link"><svg><use href="#chat"/></svg>Messaging</span>
+        <span class="global-nav__primary-link"><svg><use href="#bell"/></svg>Notifications</span>
+        <a class="global-nav__primary-link global-nav__primary-link--active me" href="#profile" aria-current="page"><span class="avatar tiny">J</span>Me ▾</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="scaffold-layout profile-layout">
+    <aside class="profile-left-column" aria-label="Profile overview">
+      <section class="artdeco-card profile-card profile-mini feed-identity-module" data-aura-surface="identity" data-aura-static-host>
+        <div class="profile-cover aura-demo-cover" data-aura-cover data-aura-photo-cover="false"></div>
+        <div class="avatar profile-avatar">J</div>
+        <h2 class="t-black">Jamie Morgan</h2>
+        <p class="t-black--light profile-subtitle">Product Designer at Northline<br>Design systems & internal tools</p>
+        <div class="mini-location t-black--light">Bengaluru, India</div>
+        <div class="profile-data"><div><span class="t-black--light">Focus</span><strong>Product design</strong></div><div><span class="t-black--light">Industry</span><strong>Software</strong></div></div>
+      </section>
+      <section class="artdeco-card profile-contents">
+        <p class="sidebar-label t-black--light">ON THIS PROFILE</p>
+        <a href="#about">About <span>↗</span></a>
+        <a href="#featured">Featured <span>↗</span></a>
+        <a href="#experience">Experience <span>↗</span></a>
+      </section>
+      <p class="demo-note t-black--light">Fictional profile for theme testing.<br>Actions stay inside this preview.</p>
+    </aside>
+
+    <div class="profile-main">
+      <section class="artdeco-card pv-top-card profile-hero" id="profile" data-aura-surface="profile" data-aura-static-host>
+        <div class="profile-hero-cover aura-demo-cover" data-aura-cover data-aura-photo-cover="false" data-aura-static-host>
+        </div>
+        <div class="profile-hero-content">
+          <div class="avatar hero-avatar pv-top-card-profile-picture__image">J</div>
+          <span class="profile-open-badge">Sample profile</span>
+          <div class="profile-heading-row"><div><h1 class="text-heading-xlarge">Jamie Morgan</h1><p class="profile-headline text-body-medium">Senior Product Designer at Northline<br>Design systems, internal tools and accessible interfaces</p></div></div>
+          <p class="profile-meta t-black--light">Bengaluru, India <span>·</span> <a href="#about">Contact & about</a></p>
+          <p class="connection-count t-black--light">Fictional work history and sample content</p>
+          <div class="profile-actions"><button class="artdeco-button artdeco-button--primary" id="connect-button" aria-pressed="false">+ Connect</button><button class="artdeco-button artdeco-button--secondary" id="message-button"><svg aria-hidden="true"><use href="#chat"/></svg> Message</button><a class="artdeco-button artdeco-button--secondary more-link" href="#featured">View work <span aria-hidden="true">↗</span></a></div>
+          <p class="profile-action-status t-black--light" id="connection-status" role="status">Preview only. No invitation is sent.</p>
+          <p class="profile-action-status t-black--light" id="message-status" role="status"></p>
+        </div>
+      </section>
+
+      <section class="artdeco-card pv-profile-card profile-section" id="about">
+        <div class="section-heading"><h2 class="text-heading-large">About</h2></div>
+        <p>I work on internal tools and design systems. My focus is turning complex workflows into interfaces that are clear to use and straightforward to maintain.</p>
+        <p id="about-more" hidden>My process combines workflow research, prototyping and close collaboration with engineering. I document edge cases, content constraints and keyboard behavior alongside the visual design.</p>
+        <button class="text-action" id="about-toggle" aria-controls="about-more" aria-expanded="false">Read more</button>
+        <div class="skill-strip"><span class="skill-label t-black--light">TOP SKILLS</span><span>Product design</span><span>Design systems</span><span>Accessibility</span></div>
+      </section>
+
+      <section class="artdeco-card pv-profile-card profile-section" id="featured">
+        <div class="section-heading"><h2 class="text-heading-large">Featured</h2><span class="section-kicker t-black--light">SAMPLE RESOURCES</span></div>
+        <div class="featured-grid">
+          <article class="featured-work sample-featured-resource"><div class="sample-document-heading"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><span class="t-black--light">CASE STUDY</span></div><div class="featured-copy"><h3 class="t-black">Operations workspace</h3><p class="t-black--light">Research, navigation and reusable patterns for a complex internal workflow.</p><span class="sample-resource-caption t-black--light">Fictional project overview</span></div></article>
+          <article class="featured-work sample-featured-resource"><div class="sample-document-heading"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h8l4 4v14H6zM14 3v5h4M9 12h6M9 16h6"/></svg><span class="t-black--light">REFERENCE GUIDE</span></div><div class="featured-copy"><h3 class="t-black">Accessible interface review</h3><p class="t-black--light">A practical checklist for focus states, labels, contrast and error handling.</p><span class="sample-resource-caption t-black--light">Sample design document</span></div></article>
+        </div>
+      </section>
+
+      <section class="artdeco-card pv-profile-card profile-section" id="experience">
+        <div class="section-heading"><h2 class="text-heading-large">Experience</h2></div>
+        <div class="experience-row"><span class="company-mark sample-company-mark" aria-hidden="true">N</span><div><h3 class="t-black">Senior Product Designer</h3><p>Northline <span class="t-black--light">· Sample company</span></p><p class="t-black--light">2023 – Present · Bengaluru, India</p><p class="experience-description">Designing internal workflows and maintaining shared components. Partnering with product and engineering on research, prototypes and implementation reviews.</p></div></div>
+      </section>
+
+      <section class="artdeco-card pv-profile-card profile-section connections-section" id="connections"><div class="section-heading"><h2 class="text-heading-large">Professional interests</h2></div><p class="t-black--light">Design systems, accessible software and research-led product teams.</p></section>
+      <p class="feed-end t-black--light">End of sample profile. No account information is changed.</p>
+    </div>
+
+    <aside class="profile-right-column">
+      <section class="artdeco-card profile-section profile-settings"><h2 class="t-black">Profile language</h2><p class="t-black--light">English</p><hr><h2 class="t-black">Public profile & URL</h2><p class="t-black--light">linkedin.com/in/jamie-morgan-demo</p></section>
+      <section class="artdeco-card profile-section sample-profile-context"><h2 class="t-black">Current focus</h2><p class="t-black--light">Product design</p><hr><h3 class="t-black">Areas of work</h3><ul class="t-black--light"><li>Design system documentation</li><li>Internal product workflows</li><li>Accessible component states</li></ul></section>
+      <footer class="right-footer t-black--light">About &nbsp; Accessibility &nbsp; Help<br><span class="mini-linkedin">Linked<span>in</span></span> Sample profile for Aura</footer>
+    </aside>
+  </main>
+
+  <dialog class="artdeco-modal" id="message-dialog">
+    <button class="artdeco-modal__dismiss" id="close-message" aria-label="Close sample message">×</button>
+    <h2 class="t-black">Message Jamie Morgan</h2><p class="t-black--light">Sample conversation. Nothing is sent to LinkedIn.</p>
+    <form id="message-form"><label class="sr-only" for="message-text">Sample message</label><textarea id="message-text" rows="4" maxlength="500" placeholder="Hello, Jamie…" required></textarea><button class="artdeco-button artdeco-button--primary" type="submit">Save sample message</button></form>
+  </dialog>
+</body>
+</html>

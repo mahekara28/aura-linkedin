@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1920" height="460" viewBox="0 0 1920 460" fill="none">
+  <defs>
+    <linearGradient id="blade" x1="1290" y1="58" x2="1510" y2="359" gradientUnits="userSpaceOnUse"><stop stop-color="#b5ccdc" stop-opacity=".34"/><stop offset=".22" stop-color="#314552" stop-opacity=".76"/><stop offset=".66" stop-color="#071019" stop-opacity=".9"/><stop offset="1" stop-color="#c1a26a" stop-opacity=".26"/></linearGradient>
+    <linearGradient id="rim" x1="1250" y1="72" x2="1565" y2="383" gradientUnits="userSpaceOnUse"><stop stop-color="#a6c9de" stop-opacity=".7"/><stop offset=".38" stop-color="#93b4c9" stop-opacity=".12"/><stop offset=".74" stop-color="#e2c68b" stop-opacity=".72"/><stop offset="1" stop-color="#6a879e" stop-opacity=".16"/></linearGradient>
+    <radialGradient id="core"><stop stop-color="#ecf6f8" stop-opacity=".8"/><stop offset=".2" stop-color="#c3dae4" stop-opacity=".4"/><stop offset=".6" stop-color="#263e51" stop-opacity=".75"/><stop offset="1" stop-color="#0c1924" stop-opacity=".95"/></radialGradient>
+  </defs>
+  <path d="M699 352H1076L1196 232M1677 112H1825M1677 122H1776" stroke="#b3c3cb" stroke-opacity=".23" stroke-width=".8"/>
+  <path d="M838 362H1080L1173 269" stroke="#c7ad74" stroke-opacity=".38" stroke-width=".8"/>
+  <circle cx="1410" cy="230" r="175" fill="#0a111a" fill-opacity=".65" stroke="url(#rim)" stroke-width="2"/>
+  <circle cx="1410" cy="230" r="166" stroke="#b2c6d2" stroke-opacity=".2" stroke-width=".7"/>
+  <g fill="url(#blade)" stroke="#9ab3c3" stroke-opacity=".32" stroke-width=".8">
+    <path d="M1293 118A162 162 0 0 1 1432 69L1456 193L1394 171Z"/>
+    <path d="M1432 69A162 162 0 0 1 1558 166L1449 256L1456 193Z"/>
+    <path d="M1558 166A162 162 0 0 1 1519 350L1397 282L1449 256Z"/>
+    <path d="M1519 350A162 162 0 0 1 1351 381L1357 229L1397 282Z"/>
+    <path d="M1351 381A162 162 0 0 1 1250 255L1394 171L1357 229Z"/>
+    <path d="M1250 255A162 162 0 0 1 1293 118L1394 171L1357 229Z"/>
+  </g>
+  <circle cx="1410" cy="230" r="54" fill="url(#core)" stroke="#d4e3e6" stroke-opacity=".54" stroke-width="1.2"/>
+  <circle cx="1410" cy="230" r="38" stroke="#cadde3" stroke-opacity=".24" stroke-width=".7"/>
+  <path d="M1395 50A181 181 0 0 1 1527 91M1582 285A181 181 0 0 1 1488 393M1277 353A181 181 0 0 1 1235 272" stroke="#c8a970" stroke-opacity=".72" stroke-width="2"/>
+  <g stroke="#a7c7da" stroke-opacity=".26" stroke-width=".7"><path d="M1410 33V41M1410 419V427M1213 230H1221M1599 230H1607"/></g>
+</svg>

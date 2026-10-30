@@ -1,0 +1,76 @@
+{
+  "manifest_version": 3,
+  "name": "Aura — Themes for LinkedIn",
+  "version": "8.3.0",
+  "description": "Four photographic LinkedIn themes with cinematic lighting and brief motion: Pink, Cosmic, Motorsport and Marvel-inspired.",
+  "minimum_chrome_version": "111",
+  "permissions": [
+    "storage"
+  ],
+  "action": {
+    "default_title": "Choose your LinkedIn theme",
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png",
+      "128": "icons/icon-128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "options_page": "preview.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "assets/scene-bloom.svg",
+        "assets/scene-shinobi.svg",
+        "assets/scene-orbit.svg",
+        "assets/scene-marvel.svg",
+        "assets/pink-satin.webp",
+        "assets/cosmic-galaxy.webp",
+        "assets/motorsport-track.webp",
+        "assets/marvel-alloy.webp",
+        "content/shadow.css",
+        "assets/light-bloom.webp",
+        "assets/light-orbit.webp",
+        "assets/light-shinobi.webp",
+        "assets/light-marvel.webp",
+        "assets/light-orbit-stars.webp"
+      ],
+      "matches": [
+        "https://www.linkedin.com/*",
+        "https://linkedin.com/*"
+      ]
+    }
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.linkedin.com/*",
+        "https://linkedin.com/*"
+      ],
+      "css": [
+        "content/themes.css",
+        "content/modern.css",
+        "content/details.css",
+        "content/world.css",
+        "content/assets.css"
+      ],
+      "js": [
+        "shared/settings.js",
+        "content/details.js",
+        "content/modern.js",
+        "content/shadow.js",
+        "content/world.js",
+        "content/content.js"
+      ],
+      "all_frames": true,
+      "run_at": "document_start"
+    }
+  ]
+}
